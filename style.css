@@ -6,4 +6,8 @@
     text-align: center;
     color: #aaa;
   }
+
+  .hidden {
+    display: none;
+  }
   

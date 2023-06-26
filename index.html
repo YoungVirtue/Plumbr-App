@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <!--Form area-->
+        <!--New Part State-->
         <div class="col-6 lg-10">
             <div class="row">
                 <form id="new-part-form" class="hidden">
@@ -54,11 +54,54 @@
                     <div class="mb-2">
                         <input type="text" placeholder="Tags" class="form-control">
                     </div>
-                    <button type="submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
-                    <button type = "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-job-btn">Create New Job</button>
                 </form>
+                <button type="submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
+                <!--New Job State-->
+                <form id="new-job-form" class="hidden">
+                    <div class="mb-2">
+                        <div id="drop_area">
+                            Drag and Drop Image Here
+                        </div>
+                        
+                        <input type="file" id="file_input" accept="image/*">
+                        <br/>
+                        
+                        <input type="text" id="url_input" placeholder="Or enter image URL here">
+                        <button id="url_button">Add Image Link</button>
+                        
+                        <img id="display_image" style="width: 300px; height: auto;">
+                    </div>
+                    <div class="mb-2">
+                        <input type="text" placeholder="Job Name" class="form-control">
+                    </div>
+                    <div class="mb-2">
+                        <input type="text" placeholder="Description" class="form-control">
+                    </div>
+                </form>
+                <button type = "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-job-btn">Create New Job</button>
             </div>
         </div>
+
+        <!--Detail State-->
+        <div class="col-6 hidden">
+            <img src="" alt="job image">
+            <h2>Job Name</h2>
+            <h4>Description</h4>
+            <ul>
+                <li>Part 1</li>
+                <li>Part 2</li>
+            </ul>
+            <!--Detail of Part-->
+            <div class="card">
+                <img src="" alt="Part image">
+                <h4 id="part-detail-name">Part Name</h4>
+                <p id="part-detail-size">Size</p>
+                <p id="part-detail-type">Type</p>
+                <p id="part-detail-tags">Tags</p>
+            </div>
+
+        </div>
+
         <script src="index.js" async defer></script>
     </body>
 </html>
