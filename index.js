@@ -10,8 +10,6 @@ const newPartButton = document.getElementById("new-part-btn");
 const newPartForm = document.querySelector("#new-part-form");
 const newJobButton = document.getElementById("new-job-btn");
 const newJobForm = document.querySelector("#new-job-form");
-const backPartBtn = document.querySelector("#back-part-btn");
-const backJobBtn = document.querySelector("#back-job-btn");
 const jobImgIcon = document.querySelector("#job-image-icon");
 const detailState = document.querySelector("#detail-state");
 
@@ -29,16 +27,6 @@ jobImgIcon.addEventListener("click", toggleDetailState);
 newPartButton.addEventListener("click", toggleNewPartState);
 newJobButton.addEventListener("click", toggleNewJobState);
 
-//Back Button Toggle
-backPartBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  backToHomeState();
-});
-
-backJobBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  backToHomeState();
-});
 
 // Handle file upload via input
 fileInput.addEventListener("change", function (e) {
@@ -80,17 +68,6 @@ function toggleDetailState(e) {
     detailState.classList.remove("hidden");
   } else {
     detailState.classList.add("hidden");
-  }
-}
-
-//For Back Button State Toggle
-function backToHomeState() {
-  if (!newPartForm.classList.contains("hidden")) {
-    newPartForm.classList.add("hidden");
-    newPartButton.textContent = "Create New Part";
-  } else if (!newJobForm.classList.contains("hidden")) {
-    newJobForm.classList.add("hidden");
-    newJobButton.textContent = "Create New Job";
   }
 }
 
