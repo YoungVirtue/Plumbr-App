@@ -44,19 +44,22 @@
                         <img id="display_image" style="width: 300px; height: auto;">
                     </div>
                     <div class="mb-2">
-                        <input type="text" placeholder="Part Name" class="form-control">
+                        <input type="text" placeholder="Part Name" class="form-control" name="part-name-submit">
                     </div>
                     <div class="mb-2">
-                        <input type="text" placeholder="Size" class="form-control">
+                        <input type="text" placeholder="Size" class="form-control" name="part-size-submit">
                     </div>
                     <div class="mb-2">
-                        <input type="text" placeholder="Type" class="form-control">
+                        <input type="text" placeholder="Type" class="form-control" name="part-type-submit">
                     </div>
                     <div class="mb-2">
-                        <input type="text" placeholder="Tags" class="form-control">
+                        <input type="text" placeholder="Tags" class="form-control" name="part-tags-submit">
+                    </div>
+                    <div class="mb-2">
+                        <input type="submit" value="Submit" class="submit-btn">
                     </div>
                 </form>
-                <button class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
+                <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
                 <!--New Job State-->
                 <form id="new-job-form" class="hidden">
                     <button class="back-btn" id="back-job-btn">Back</button>
@@ -79,8 +82,11 @@
                     <div class="mb-2">
                         <input type="text" placeholder="Description" class="form-control">
                     </div>
+                    <div class="mb-2">
+                        <input type="submit" value="Submit" class="submit-btn">
+                    </div>
                 </form>
-                <button class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-job-btn">Create New Job</button>
+                <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-job-btn">Create New Job</button>
             </div>
         </div>
 

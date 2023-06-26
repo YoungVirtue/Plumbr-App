@@ -19,6 +19,9 @@ const detailState = document.querySelector("#detail-state");
 
 //EVENT LISTENERS
 
+//New Part Form Submit
+newPartForm.addEventListener('submit', handlePartSubmit);
+
 //Detail State Toggle
 jobImgIcon.addEventListener("click", toggleDetailState);
 
@@ -55,6 +58,20 @@ urlButton.addEventListener("click", function () {
 dropArea.addEventListener("drop", handleDrop, false);
 
 //EVENT HANDLERS
+
+//Handle New Part Submit
+
+function handlePartSubmit(e) {
+    e.preventDefault()
+    const partName = e.target["part-name-submit"].value
+    const partSize = e.target["part-size-submit"].value
+    const partType = e.target["part-type-submit"].value
+    const partTags = e.target["part-tags-submit"].value
+    console.log(partName, partSize, partType, partTags)
+    e.target.reset()
+    alert(`${partName} submitted!`)
+
+}
 
 //For Detail State Toggle
 function toggleDetailState(e) {
