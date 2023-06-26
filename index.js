@@ -6,10 +6,30 @@ const fileInput = document.getElementById("file_input");
 const urlInput = document.getElementById("url_input");
 const urlButton = document.getElementById("url_button");
 const displayImage = document.getElementById("display_image");
+const newPartButton = document.getElementById("new-part-btn");
+const newPartForm = document.querySelector("#new-part-form");
+const newJobButton = document.getElementById("new-job-btn");
+const newJobForm = document.querySelector("#new-job-form");
+const backPartBtn = document.querySelector("#back-part-btn");
+const backJobBtn = document.querySelector("#back-job-btn");
 
 //FETCH FUNCTIONS
 
 //EVENT LISTENERS
+
+//Create New Part Button State Toggle
+newPartButton.addEventListener("click", toggleNewPartState);
+newJobButton.addEventListener("click", toggleNewJobState);
+
+backPartBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  backToHomeState();
+});
+
+backJobBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  backToHomeState();
+});
 
 // Handle file upload via input
 fileInput.addEventListener("change", function (e) {
@@ -29,6 +49,41 @@ urlButton.addEventListener("click", function () {
 dropArea.addEventListener("drop", handleDrop, false);
 
 //EVENT HANDLERS
+
+//For Back Button State Toggle
+function backToHomeState() {
+  if (!newPartForm.classList.contains("hidden")) {
+    newPartForm.classList.add("hidden");
+    newPartButton.textContent = "Create New Part";
+  } else if (!newJobForm.classList.contains("hidden")) {
+    newJobForm.classList.add("hidden");
+    newJobButton.textContent = "Create New Job";
+  }
+}
+
+//For New Part Button State Toggle
+function toggleNewPartState() {
+  // e.preventDefault();
+  if (newPartForm.classList.contains("hidden")) {
+    newPartForm.classList.remove("hidden");
+    newPartButton.textContent = "Done";
+  } else {
+    newPartForm.classList.add("hidden");
+    newPartButton.textContent = "Create New Part";
+  }
+}
+
+//For New Job Button State Toggle
+function toggleNewJobState() {
+  // e.preventDefault();
+  if (newJobForm.classList.contains("hidden")) {
+    newJobForm.classList.remove("hidden");
+    newJobButton.textContent = "Done";
+  } else {
+    newJobForm.classList.add("hidden");
+    newJobButton.textContent = "Create New Job";
+  }
+}
 
 //For Drag & Drop
 function preventDefaults(e) {
