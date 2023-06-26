@@ -20,6 +20,9 @@ const detailState = document.querySelector("#detail-state");
 //New Part Form Submit
 newPartForm.addEventListener('submit', handlePartSubmit);
 
+//New Job Form Submit
+newJobForm.addEventListener('submit', handleJobSubmit);
+
 //Detail State Toggle
 jobImgIcon.addEventListener("click", toggleDetailState);
 
@@ -31,11 +34,6 @@ newJobButton.addEventListener("click", toggleNewJobState);
 // Handle file upload via input
 fileInput.addEventListener("change", function (e) {
   displayUploadedFile(this.files[0]);
-});
-
-// Handle URL input
-urlButton.addEventListener("click", function () {
-  displayImage.src = urlInput.value;
 });
 
 // Handle file upload via drag and drop
@@ -55,9 +53,23 @@ function handlePartSubmit(e) {
     const partSize = e.target["part-size-submit"].value
     const partType = e.target["part-type-submit"].value
     const partTags = e.target["part-tags-submit"].value
-    console.log(partName, partSize, partType, partTags)
+    const partImg = e.target["part-img-submit"].value
+    console.log(partName, partSize, partType, partTags, partImg)
     e.target.reset()
     alert(`${partName} submitted!`)
+
+}
+
+//Handle New Job Submit
+
+function handleJobSubmit(e) {
+    e.preventDefault()
+    const jobName = e.target["job-name-submit"].value
+    const jobDescr = e.target["job-descr-submit"].value
+    const jobImg = e.target["job-img-submit"].value
+    console.log(jobName, jobDescr, jobImg)
+    e.target.reset()
+    alert(`${jobName} submitted!`)
 
 }
 

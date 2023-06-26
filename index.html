@@ -29,7 +29,6 @@
         <div class="col-6 lg-10">
             <div class="row">
                 <form id="new-part-form" class="hidden">
-                    <button class="back-btn" id="back-part-btn">Back</button>
                     <div class="mb-2">
                         <div id="drop_area">
                             Drag and Drop Image Here
@@ -38,8 +37,7 @@
                         <input type="file" id="file_input" accept="image/*">
                         <br/>
                         
-                        <input type="text" id="url_input" placeholder="Or enter image URL here">
-                        <button id="url_button">Add Image Link</button>
+                        <input type="text" id="url_input" placeholder="Or enter image URL here" name="part-img-submit">
                         
                         <img id="display_image" style="width: 300px; height: auto;">
                     </div>
@@ -62,7 +60,6 @@
                 <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
                 <!--New Job State-->
                 <form id="new-job-form" class="hidden">
-                    <button class="back-btn" id="back-job-btn">Back</button>
                     <div class="mb-2">
                         <div id="drop_area">
                             Drag and Drop Image Here
@@ -71,16 +68,15 @@
                         <input type="file" id="file_input" accept="image/*">
                         <br/>
                         
-                        <input type="text" id="url_input" placeholder="Or enter image URL here">
-                        <button id="url_button">Add Image Link</button>
+                        <input type="text" id="url_input" placeholder="Or enter image URL here" name="job-img-submit">   
                         
                         <img id="display_image" style="width: 300px; height: auto;">
                     </div>
                     <div class="mb-2">
-                        <input type="text" placeholder="Job Name" class="form-control">
+                        <input type="text" placeholder="Job Name" class="form-control" name="job-name-submit">
                     </div>
                     <div class="mb-2">
-                        <input type="text" placeholder="Description" class="form-control">
+                        <input type="text" placeholder="Description" class="form-control" name="job-descr-submit">
                     </div>
                     <div class="mb-2">
                         <input type="submit" value="Submit" class="submit-btn">
