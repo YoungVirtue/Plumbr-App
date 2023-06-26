@@ -1,0 +1,9 @@
+#drop_area {
+    width: 300px;
+    height: 200px;
+    border: 2px dashed #aaa;
+    line-height: 200px;
+    text-align: center;
+    color: #aaa;
+  }
+  
