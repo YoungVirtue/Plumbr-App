@@ -56,16 +56,23 @@ dropArea.addEventListener("drop", handleDrop, false);
 
 function handlePartSubmit(e) {
     e.preventDefault()
-    const partName = e.target["part-name-submit"].value
-    const partSize = e.target["part-size-submit"].value
-    const partType = e.target["part-type-submit"].value
-    const partTags = e.target["part-tags-submit"].value
-    const partImg = e.target["part-img-submit"].value
-    console.log(partName, partSize, partType, partTags, partImg)
+    const newPart = {
+      name: e.target["part-name-submit"].value,
+      size: e.target["part-size-submit"].value,
+      type: e.target["part-type-submit"].value,
+      tags: e.target["part-tags-submit"].value,
+      image:  e.target["part-img-submit"].value
+    }
     e.target.reset()
-    alert(`${partName} submitted!`)
-
-}
+    fetch(URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(newPart)
+    })
+    .then(()=> (alert(`${newPart.name} submitted!`)))
+  }
 
 //Handle New Job Submit
 
@@ -138,5 +145,3 @@ function displayUploadedFile(file) {
 }
 
 //INITIALIZERS
-
-getParts(URL)
