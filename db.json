@@ -10,136 +10,28 @@
         "3",
         "4"
       ],
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg"
+      "image": "https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/Articles/water-heater-installation-basics-2022-hero.jpg"
     },
     {
-      "name": "Toilet Fix",
-      "description": "Remove Old Toilet",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "3",
-        "5",
-        "11"
-      ],
-      "id": 2
+        "id": 2,
+        "name": "Leaky Faucet Repair",
+        "description": "Repair of a leaky faucet, involves replacing worn-out components",
+        "parts": ["5", "8"],
+        "image": "https://www.truevalue.com/media/magefan_blog/fixing-faucet-wrench-o-rings-840x560-75.jpg"
     },
     {
-      "name": "",
-      "description": "",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg\"",
-      "parts": [],
-      "id": 3
+        "id": 3,
+        "name": "Drain Cleaning",
+        "description": "Cleaning of a clogged drain, usually involves using a drain snake or a plunger",
+        "parts": ["3"],
+        "image": "https://www.allamericanpha.com/wp-content/uploads/2018/07/how-often-should-you-clean-your-drains-1024x683.jpg"
     },
     {
-      "name": "",
-      "description": "",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [],
-      "id": 4
-    },
-    {
-      "name": "Plumber stuff",
-      "description": "hard work",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "2",
-        "3",
-        "6",
-        "8"
-      ],
-      "id": 5
-    },
-    {
-      "name": "Plumber Job",
-      "description": "Work",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "2",
-        "5",
-        "6",
-        "7"
-      ],
-      "id": 6
-    },
-    {
-      "name": "Job",
-      "description": "Work",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "1",
-        "5",
-        "6"
-      ],
-      "id": 7
-    },
-    {
-      "name": "New Job",
-      "description": "Work",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "1",
-        "2",
-        "3"
-      ],
-      "id": 8
-    },
-    {
-      "name": "Toilet Fix",
-      "description": "Dirty Job",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "1",
-        "2",
-        "3"
-      ],
-      "id": 9
-    },
-    {
-      "name": "Toilet Fix",
-      "description": "Dirty Job",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
-      "id": 10
-    },
-    {
-      "name": "Toilet Fix",
-      "description": "Dirty Job",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "1",
-        "2",
-        "7",
-        "8"
-      ],
-      "id": 11
-    },
-    {
-      "name": "Toilet Fix",
-      "description": "Dirty Job",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "1",
-        "2",
-        "3"
-      ],
-      "id": 12
-    },
-    {
-      "name": "Pipe Break",
-      "description": "Fixing Pipes",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [
-        "1",
-        "2",
-        "3",
-        "4"
-      ],
-      "id": 13
+        "id": 4,
+        "name": "Toilet Installation",
+        "description": "Installation of a new toilet unit",
+        "parts": ["7", "9"],
+        "image": "https://empire-s3-production.bobvila.com/articles/wp-content/uploads/2018/01/iStock-1199720285.jpg"
     }
   ],
   "plumbing_parts": [
@@ -153,7 +45,7 @@
         "pipe",
         "water supply"
       ],
-      "image": "PVC_Pipe.png"
+      "image": "https://cdn-tp3.mozu.com/24645-37138/cms/37138/files/52c0b8db-193c-4c7c-bc8e-1fb669fa9149?quality=60&_mzcb=_1677685580029"
     },
     {
       "id": 2,
@@ -165,7 +57,7 @@
         "pipe",
         "water supply"
       ],
-      "image": ""
+      "image": "https://m.media-amazon.com/images/I/61LV9ykxkBL.jpg"
     },
     {
       "id": 3,
@@ -177,7 +69,7 @@
         "fitting",
         "pipe connection"
       ],
-      "image": ""
+      "image": "https://m.media-amazon.com/images/I/71wjbV02jvL.jpg"
     },
     {
       "id": 4,
@@ -188,7 +80,7 @@
         "gate valve",
         "flow control"
       ],
-      "image": ""
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvPgjLKYwM8iEepD-FyhENhH9vkki02FvIP4oTBYQSMB94YDI1iITFN7m8WyUWC_7j1bM&usqp=CAU"
     },
     {
       "id": 5,
@@ -199,7 +91,7 @@
         "faucet",
         "water output"
       ],
-      "image": ""
+      "image": "https://images.thdstatic.com/productImages/1815df5e-5461-4ae9-ab7e-4a6264869716/svn/matte-black-vigo-pull-down-kitchen-faucets-vg02001mb-64_600.jpg"
     },
     {
       "id": 6,
@@ -210,7 +102,7 @@
         "drain",
         "waste disposal"
       ],
-      "image": ""
+      "image": "https://cdn.shopify.com/s/files/1/1161/9636/articles/draining-water_7e0b47e1-a7e8-4177-aedf-25d25647dfa1_500x.jpg?v=1622216958"
     },
     {
       "id": 7,
@@ -222,7 +114,7 @@
         "drain pipe",
         "sewer gas prevention"
       ],
-      "image": ""
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTor9d0eSoLdUsjewiYnHSdET5uyMfZa464-akQh1t_-K-V2S8Po_SLAlLgBl4SzHEpdVE&usqp=CAU"
     },
     {
       "id": 8,
@@ -234,7 +126,7 @@
         "pipe connection",
         "fixture attachment"
       ],
-      "image": ""
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPgXHn0_wb8kHn-I6WwLnNj3Aw1b_riq1xso8PWaxEtMcI0B2q5hsBkK8jBc-UGTNcls0&usqp=CAU"
     },
     {
       "id": 9,
@@ -246,7 +138,7 @@
         "sealing",
         "leak prevention"
       ],
-      "image": ""
+      "image": "https://m.media-amazon.com/images/I/41s-JXt604L._AC_.jpg"
     },
     {
       "id": 10,
@@ -258,15 +150,7 @@
         "outdoor",
         "water output"
       ],
-      "image": ""
-    },
-    {
-      "name": "thing",
-      "size": "3",
-      "type": "pipe",
-      "tags": "part",
-      "image": "",
-      "id": 11
+      "image": "https://mobileimages.lowes.com/productimages/de1863b1-1e2c-43a2-9357-419bc486e6ab/00532996.jpg"
     }
   ]
 }

@@ -13,11 +13,12 @@ const newPartButton = document.getElementById("new-part-btn");
 const newPartForm = document.querySelector("#new-part-form");
 const newJobButton = document.getElementById("new-job-btn");
 const newJobForm = document.querySelector("#new-job-form");
-// const jobImgIcon = document.querySelector("#job-image-icon");
 const detailState = document.querySelector("#detail-state");
 const partsList = document.querySelector("#parts-list");
 const partsDropdown = document.querySelector("#dropdown");
 const jobIcons = document.querySelector("#job-icons");
+const searchBar = document.querySelector("#search-bar")
+const partDetailCard = document.querySelector("#part-detail-card")
 
 //FETCH FUNCTIONS
 
@@ -31,6 +32,29 @@ function getJobs(url) {
 }
 
 //EVENT LISTENERS
+
+//Search Bar Input
+searchBar.addEventListener("input", (e) => {
+    const searchText = e.target.value.toLowerCase(); // Fetch the input value and convert to lowercase
+    
+    // Fetch the jobs data
+  getJobs(jobURL)
+      .then(jobs => {
+        // Filter the jobs by the search text
+        const filteredJobs = jobs.filter(job => job.name.toLowerCase().includes(searchText));
+        
+        // Clear out the current job display
+        // Assuming you have a function `clearJobDisplay()`
+        //clearJobDisplay();
+  
+        // Render the filtered jobs
+        // Assuming you have a function `renderJob(job)` that adds a job to the job display
+        filteredJobs.forEach(job => renderDetailState(job));
+      });
+      toggleDetailState()
+      // partDetailCard.innerHTML=""
+  });
+  
 
 //New Part Form Submit
 newPartForm.addEventListener("submit", handlePartSubmit);
@@ -125,7 +149,7 @@ function handleJobSubmit(e) {
 };
 
 //Handle Parts Dropdown
-function handlePartsDropdown(e) {
+function handlePartsDropdown() {
   if (partsList.classList.contains("hidden")) {
     partsList.classList.remove("hidden");
   } else {
@@ -190,7 +214,6 @@ function renderDetailState(newJob) {
   const ul = document.querySelector("#job-parts-detail-list")
   
   const jobPartsArr = newJob.parts
-  console.log(jobPartsArr)
   
   detailImg.src = newJob.image
   detailName.textContent = newJob.name
@@ -198,13 +221,14 @@ function renderDetailState(newJob) {
   ul.innerHTML = "";
   
   jobPartsArr.forEach((part) => {
-      getParts(partURL + "/" + part)
-      .then((part) => {
-        let li = document.createElement('li');
-        li.textContent = part.name
-        ul.appendChild(li)
-        li.addEventListener('click', () => renderPartsDetail(part))
-      })
+    getParts(partURL + "/" + part)
+    .then((part) => {
+      let li = document.createElement('li');
+      li.textContent = part.name
+      ul.appendChild(li)
+      li.addEventListener('click', () => renderPartsDetail(part))
+    })
+    // renderPartsDetail(part[0])
   })
 }
 
