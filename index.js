@@ -16,6 +16,9 @@ const newJobForm = document.querySelector("#new-job-form");
 const jobImgIcon = document.querySelector("#job-image-icon");
 const detailState = document.querySelector("#detail-state");
 const partsList = document.querySelector("#parts-list");
+const partsDropdown = document.querySelector("#dropdown");
+
+
 
 //FETCH FUNCTIONS
 
@@ -30,6 +33,9 @@ newPartForm.addEventListener("submit", handlePartSubmit);
 
 //New Job Form Submit
 newJobForm.addEventListener("submit", handleJobSubmit);
+
+//Add parts List Dropdown
+partsDropdown.addEventListener("click", handlePartsDropdown);
 
 //Detail State Toggle
 jobImgIcon.addEventListener("click", toggleDetailState);
@@ -77,10 +83,13 @@ function handlePartSubmit(e) {
 
 function handleJobSubmit(e) {
   e.preventDefault();
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+  const values = Array.from(checkboxes).map(checkbox => checkbox.value);
   const newJob = {
     name: e.target["job-name-submit"].value,
     description: e.target["job-descr-submit"].value,
     image: e.target["job-img-submit"].value,
+    parts: values,
   }
   e.target.reset();
   fetch(jobURL, {
@@ -90,6 +99,15 @@ function handleJobSubmit(e) {
     },
     body: JSON.stringify(newJob),
   }).then(() => alert(`${newJob.name} submitted!`));
+}
+
+//Handle Parts Dropdown
+function handlePartsDropdown(e) {
+    if (partsList.classList.contains("hidden")) {
+        partsList.classList.remove("hidden");
+      } else {
+        partsList.classList.add("hidden");
+      }
 }
 
 //For Detail State Toggle
@@ -140,13 +158,13 @@ function handleDrop(e) {
 
 //RENDER FUNCTIONS
 function renderInPartsList(partObj) {
-    console.log(partObj);
+    //console.log(partObj);
     const input = document.createElement("input");
     const label = document.createElement("label");
     input.type = "checkbox";
     input.id = partObj.id;
     input.name = partObj.name;
-    input.value = partObj.name;
+    input.value = partObj.id;
     label.htmlFor = partObj.id;
     label.textContent = partObj.name;
     partsList.appendChild(input);
