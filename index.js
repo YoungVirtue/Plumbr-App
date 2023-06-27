@@ -1,6 +1,7 @@
 //GLOBALS
 
-const URL = "http://localhost:3000/plumbing_parts";
+const partURL = "http://localhost:3000/plumbing_parts";
+const jobURL = "http://localhost:3000/jobs"
 
 //DOM SELECTORS
 const dropArea = document.getElementById("drop_area");
@@ -14,21 +15,21 @@ const newJobButton = document.getElementById("new-job-btn");
 const newJobForm = document.querySelector("#new-job-form");
 const jobImgIcon = document.querySelector("#job-image-icon");
 const detailState = document.querySelector("#detail-state");
+const partsList = document.querySelector("#parts-list");
 
 //FETCH FUNCTIONS
 
 function getParts(url) {
-  return fetch(url)
-  .then(res => res.json())
+  return fetch(url).then((res) => res.json());
 }
 
 //EVENT LISTENERS
 
 //New Part Form Submit
-newPartForm.addEventListener('submit', handlePartSubmit);
+newPartForm.addEventListener("submit", handlePartSubmit);
 
 //New Job Form Submit
-newJobForm.addEventListener('submit', handleJobSubmit);
+newJobForm.addEventListener("submit", handleJobSubmit);
 
 //Detail State Toggle
 jobImgIcon.addEventListener("click", toggleDetailState);
@@ -36,7 +37,6 @@ jobImgIcon.addEventListener("click", toggleDetailState);
 //Create New Part Button State Toggle
 newPartButton.addEventListener("click", toggleNewPartState);
 newJobButton.addEventListener("click", toggleNewJobState);
-
 
 // Handle file upload via input
 fileInput.addEventListener("change", function (e) {
@@ -55,36 +55,41 @@ dropArea.addEventListener("drop", handleDrop, false);
 //Handle New Part Submit
 
 function handlePartSubmit(e) {
-    e.preventDefault()
-    const newPart = {
-      name: e.target["part-name-submit"].value,
-      size: e.target["part-size-submit"].value,
-      type: e.target["part-type-submit"].value,
-      tags: e.target["part-tags-submit"].value,
-      image:  e.target["part-img-submit"].value
-    }
-    e.target.reset()
-    fetch(URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(newPart)
-    })
-    .then(()=> (alert(`${newPart.name} submitted!`)))
-  }
+  e.preventDefault();
+  const newPart = {
+    name: e.target["part-name-submit"].value,
+    size: e.target["part-size-submit"].value,
+    type: e.target["part-type-submit"].value,
+    tags: e.target["part-tags-submit"].value,
+    image: e.target["part-img-submit"].value,
+  };
+  e.target.reset();
+  fetch(partURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newPart),
+  }).then(() => alert(`${newPart.name} submitted!`));
+}
 
 //Handle New Job Submit
 
 function handleJobSubmit(e) {
-    e.preventDefault()
-    const jobName = e.target["job-name-submit"].value
-    const jobDescr = e.target["job-descr-submit"].value
-    const jobImg = e.target["job-img-submit"].value
-    console.log(jobName, jobDescr, jobImg)
-    e.target.reset()
-    alert(`${jobName} submitted!`)
-
+  e.preventDefault();
+  const newJob = {
+    name: e.target["job-name-submit"].value,
+    description: e.target["job-descr-submit"].value,
+    image: e.target["job-img-submit"].value,
+  }
+  e.target.reset();
+  fetch(jobURL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(newJob),
+  }).then(() => alert(`${newJob.name} submitted!`));
 }
 
 //For Detail State Toggle
@@ -134,6 +139,19 @@ function handleDrop(e) {
 }
 
 //RENDER FUNCTIONS
+function renderInPartsList(partObj) {
+    console.log(partObj);
+    const input = document.createElement("input");
+    const label = document.createElement("label");
+    input.type = "checkbox";
+    input.id = partObj.id;
+    input.name = partObj.name;
+    input.value = partObj.name;
+    label.htmlFor = partObj.id;
+    label.textContent = partObj.name;
+    partsList.appendChild(input);
+    partsList.appendChild(label);
+}
 
 // Display uploaded file
 function displayUploadedFile(file) {
@@ -144,4 +162,10 @@ function displayUploadedFile(file) {
   reader.readAsDataURL(file);
 }
 
+
+
 //INITIALIZERS
+getParts(partURL)
+    .then(partsArr => {
+        partsArr.forEach(renderInPartsList);
+    })

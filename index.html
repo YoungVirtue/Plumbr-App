@@ -26,7 +26,7 @@
         </div>
 
         <!--New Part State-->
-        <div class="col-6 lg-10">
+        <div class="col">
             <div class="row">
                 <form id="new-part-form" class="hidden">
                     <div class="mb-2">
@@ -58,7 +58,8 @@
                     </div>
                 </form>
                 <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
-                <!--New Job State-->
+
+        <!--New Job State-->
                 <form id="new-job-form" class="hidden">
                     <div class="mb-2">
                         <div id="drop_area">
@@ -78,7 +79,7 @@
                     <div class="mb-2">
                         <input type="text" placeholder="Description" class="form-control" name="job-descr-submit">
                     </div>
-                    <div class="row-auto mb-2">
+                    <!-- <div class="row-auto mb-2">
                         <label for="job-parts-size-filter">Filter By Size</label>
                         <select name="job-parts-size-filter">
                             <option value="3/4in">3/4in</option>
@@ -98,7 +99,13 @@
                             <option value="3/4in">3/4in</option>
                             <option value="1/2in">1/2in</option>
                         </select>
-                    </div>
+                    </div> -->
+                    <fieldset>
+                        <legend>Add Parts</legend>
+                        <div class = "mb-2" id="parts-list">
+                            <!--This is where we need to creation input elements with values & text in JS-->
+                        </div>
+                    </fieldset>
                     <div class="mb-2">
                         <input type="submit" value="Submit" class="submit-btn">
                     </div>

@@ -1,64 +1,143 @@
 {
-    "plumbing_parts": [
-        {
-            "name": "PVC Pipe",
-            "size": "2 inches",
-            "type": "Pipe",
-            "tags": ["PVC", "pipe", "water supply"]
-        },
-        {
-            "name": "Copper Pipe",
-            "size": "3/4 inch",
-            "type": "Pipe",
-            "tags": ["copper", "pipe", "water supply"]
-        },
-        {
-            "name": "Elbow Fitting",
-            "size": "1/2 inch",
-            "type": "Fitting",
-            "tags": ["elbow", "fitting", "pipe connection"]
-        },
-        {
-            "name": "Gate Valve",
-            "size": "1 inch",
-            "type": "Valve",
-            "tags": ["gate valve", "flow control"]
-        },
-        {
-            "name": "Faucet",
-            "size": "Standard",
-            "type": "Fixture",
-            "tags": ["faucet", "water output"]
-        },
-        {
-            "name": "Drain",
-            "size": "3 inches",
-            "type": "Fixture",
-            "tags": ["drain", "waste disposal"]
-        },
-        {
-            "name": "P-Trap",
-            "size": "1 1/4 inches",
-            "type": "Pipe",
-            "tags": ["P-trap", "drain pipe", "sewer gas prevention"]
-        },
-        {
-            "name": "Flange",
-            "size": "2 inches",
-            "type": "Fitting",
-            "tags": ["flange", "pipe connection", "fixture attachment"]
-        },
-        {
-            "name": "Washer",
-            "size": "1/2 inch",
-            "type": "Accessory",
-            "tags": ["washer", "sealing", "leak prevention"]
-        },
-        {
-            "name": "Hose Bib",
-            "size": "3/4 inch",
-            "type": "Valve",
-            "tags": ["hose bib", "outdoor", "water output"]
-        }
-    ]
+  "jobs": [
+    {
+      "id": 1,
+      "name": "Water Heater replacement",
+      "description": "",
+      "image": ""
+    },
+    {
+      "name": "Toilet Stuff",
+      "description": "Dirty",
+      "image": "",
+      "id": 2
+    }
+  ],
+  "plumbing_parts": [
+    {
+      "id": 1,
+      "name": "PVC Pipe",
+      "size": "2 inches",
+      "type": "Pipe",
+      "tags": [
+        "PVC",
+        "pipe",
+        "water supply"
+      ],
+      "image": "PVC_Pipe.png"
+    },
+    {
+      "id": 2,
+      "name": "Copper Pipe",
+      "size": "3/4 inch",
+      "type": "Pipe",
+      "tags": [
+        "copper",
+        "pipe",
+        "water supply"
+      ],
+      "image": ""
+    },
+    {
+      "id": 3,
+      "name": "Elbow Fitting",
+      "size": "1/2 inch",
+      "type": "Fitting",
+      "tags": [
+        "elbow",
+        "fitting",
+        "pipe connection"
+      ],
+      "image": ""
+    },
+    {
+      "id": 4,
+      "name": "Gate Valve",
+      "size": "1 inch",
+      "type": "Valve",
+      "tags": [
+        "gate valve",
+        "flow control"
+      ],
+      "image": ""
+    },
+    {
+      "id": 5,
+      "name": "Faucet",
+      "size": "Standard",
+      "type": "Fixture",
+      "tags": [
+        "faucet",
+        "water output"
+      ],
+      "image": ""
+    },
+    {
+      "id": 6,
+      "name": "Drain",
+      "size": "3 inches",
+      "type": "Fixture",
+      "tags": [
+        "drain",
+        "waste disposal"
+      ],
+      "image": ""
+    },
+    {
+      "id": 7,
+      "name": "P-Trap",
+      "size": "1 1/4 inches",
+      "type": "Pipe",
+      "tags": [
+        "P-trap",
+        "drain pipe",
+        "sewer gas prevention"
+      ],
+      "image": ""
+    },
+    {
+      "id": 8,
+      "name": "Flange",
+      "size": "2 inches",
+      "type": "Fitting",
+      "tags": [
+        "flange",
+        "pipe connection",
+        "fixture attachment"
+      ],
+      "image": ""
+    },
+    {
+      "id": 9,
+      "name": "Washer",
+      "size": "1/2 inch",
+      "type": "Accessory",
+      "tags": [
+        "washer",
+        "sealing",
+        "leak prevention"
+      ],
+      "image": ""
+    },
+    {
+      "id": 10,
+      "name": "Hose Bib",
+      "size": "3/4 inch",
+      "type": "Valve",
+      "tags": [
+        "hose bib",
+        "outdoor",
+        "water output"
+      ],
+      "image": ""
+    },
+    {
+      "name": "thing",
+      "size": "3",
+      "type": "pipe",
+      "tags": "part",
+      "image": "",
+      "id": 11
+    }
+  ]
 }
