@@ -3,133 +3,143 @@
     {
       "id": 1,
       "name": "Water Heater replacement",
-      "description": "",
-      "parts": [],
-      "image": ""
+      "description": "Replacement",
+      "parts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg"
     },
     {
-      "name": "Toilet Stuff",
-      "description": "Dirty",
-      "image": "",
-      "parts": [],
+      "name": "Toilet Fix",
+      "description": "Remove Old Toilet",
+      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
+      "parts": [
+        "3",
+        "5",
+        "11"
+      ],
       "id": 2
     },
     {
       "name": "",
       "description": "",
-      "image": "",
+      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg\"",
       "parts": [],
       "id": 3
     },
     {
-      "name": "Toilet Fix",
-      "description": "Dirty Job",
-      "image": "",
+      "name": "",
+      "description": "",
+      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
       "parts": [],
       "id": 4
     },
     {
-      "name": "",
-      "description": "",
-      "image": "",
-      "parts": [],
+      "name": "Plumber stuff",
+      "description": "hard work",
+      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
+      "parts": [
+        "2",
+        "3",
+        "6",
+        "8"
+      ],
       "id": 5
     },
     {
-      "name": "",
-      "description": "",
-      "image": "",
-      "parts": [],
-      "id": 6
-    },
-    {
-      "name": "Mario",
-      "description": "Free the princess",
+      "name": "Plumber Job",
+      "description": "Work",
       "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
       "parts": [
-        "1",
         "2",
         "5",
         "6",
-        "11"
+        "7"
+      ],
+      "id": 6
+    },
+    {
+      "name": "Job",
+      "description": "Work",
+      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
+      "parts": [
+        "1",
+        "5",
+        "6"
       ],
       "id": 7
     },
     {
-      "name": "Mario",
-      "description": "Princess Saving",
+      "name": "New Job",
+      "description": "Work",
       "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
       "parts": [
-        "3",
-        "6",
-        "7",
-        "8"
+        "1",
+        "2",
+        "3"
       ],
       "id": 8
     },
     {
-      "name": "Mario",
-      "description": "Princess",
-      "image": "",
+      "name": "Toilet Fix",
+      "description": "Dirty Job",
+      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
       "parts": [
+        "1",
         "2",
-        "5",
-        "6",
-        "7"
+        "3"
       ],
       "id": 9
     },
     {
-      "name": "Mario",
-      "description": "same",
+      "name": "Toilet Fix",
+      "description": "Dirty Job",
       "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
       "parts": [
         "1",
-        "5",
-        "6",
-        "11"
+        "2",
+        "3",
+        "4"
       ],
       "id": 10
     },
     {
-      "name": "M",
-      "description": "P",
+      "name": "Toilet Fix",
+      "description": "Dirty Job",
       "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
       "parts": [
+        "1",
         "2",
-        "3",
-        "6",
-        "7"
+        "7",
+        "8"
       ],
       "id": 11
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Toilet Fix",
+      "description": "Dirty Job",
       "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [],
+      "parts": [
+        "1",
+        "2",
+        "3"
+      ],
       "id": 12
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Pipe Break",
+      "description": "Fixing Pipes",
       "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [],
+      "parts": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
       "id": 13
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [],
-      "id": 14
-    },
-    {
-      "name": "",
-      "description": "",
-      "image": "https://www.atlas-homeservices.com/wp-content/uploads/2022/05/mario-plumber-800x533.jpg",
-      "parts": [],
-      "id": 15
     }
   ],
   "plumbing_parts": [

@@ -19,11 +19,15 @@ const partsList = document.querySelector("#parts-list");
 const partsDropdown = document.querySelector("#dropdown");
 const jobIcons = document.querySelector("#job-icons");
 
-
 //FETCH FUNCTIONS
 
 function getParts(url) {
   return fetch(url).then((res) => res.json());
+}
+
+function getJobs(url) {
+  return fetch(url)
+  .then(res=> res.json())
 }
 
 //EVENT LISTENERS
@@ -75,7 +79,9 @@ function handlePartSubmit(e) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newPart),
-  }).then(() => alert(`${newPart.name} submitted!`));
+  })
+  .then(() => alert(`${newPart.name} submitted!`));
+  
 }
 
 //Handle New Job Submit
@@ -94,11 +100,13 @@ function handleJobSubmit(e) {
 
   const image = document.createElement("img")
   image.src = e.target["job-img-submit"].value
-  image.id = e.target["job-name-submit"].value
+  
   jobIcons.appendChild(image);
   image.addEventListener("click", () => {
     toggleDetailState()
+    renderDetailState(newJob)
   });
+  
 
   e.target.reset();
 
@@ -108,7 +116,12 @@ function handleJobSubmit(e) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newJob),
-  }).then(() => alert(`${newJob.name} submitted!`))
+  }).then((res) => {
+    alert(`${newJob.name} submitted!`)
+    return res.json()
+  }) .then(newJobJson => {
+    image.dataset.jobId = newJobJson.id;
+  });
 };
 
 //Handle Parts Dropdown
@@ -121,7 +134,7 @@ function handlePartsDropdown(e) {
 }
 
 //For Detail State Toggle
-function toggleDetailState(e) {
+function toggleDetailState() {
   // e.preventDefault();
   if (detailState.classList.contains("hidden")) {
     detailState.classList.remove("hidden");
@@ -168,8 +181,57 @@ function handleDrop(e) {
 
 //RENDER FUNCTIONS
 
-//Display Parts Data in Parts List
-function renderInPartsList(partObj) {
+//Display Detail in Job Detail State
+
+function renderDetailState(newJob) {
+  const detailImg = document.querySelector("#image-detail")
+  const detailName = document.querySelector("#job-detail-name")
+  const detailDescr = document.querySelector("#job-description-name")
+  const ul = document.querySelector("#job-parts-detail-list")
+  
+  const jobPartsArr = newJob.parts
+  console.log(jobPartsArr)
+  
+  detailImg.src = newJob.image
+  detailName.textContent = newJob.name
+  detailDescr.textContent = newJob.description
+  ul.innerHTML = "";
+  
+  jobPartsArr.forEach((part) => {
+      getParts(partURL + "/" + part)
+      .then((part) => {
+        let li = document.createElement('li');
+        li.textContent = part.name
+        ul.appendChild(li)
+        li.addEventListener('click', () => renderPartsDetail(part))
+      })
+  })
+}
+
+function renderPartsDetail(part) {
+  const partDetailImage = document.querySelector("#part-detail-img")
+  const partDetailName = document.querySelector("#part-detail-name")
+  const partDetailSize = document.querySelector("#part-detail-size")
+  const partDetailType = document.querySelector("#part-detail-type")
+  const partDetailTags = document.querySelector("#part-detail-tags")
+  partDetailTags.innerHTML = ""
+  const tagArr = part.tags
+
+  partDetailImage.src = part.image
+  partDetailName.textContent = part.name
+  partDetailSize.textContent = part.size
+  partDetailType.textContent = part.type
+  tagArr.forEach((tag) => {
+    let li = document.createElement('li')
+    li.textContent = `#${tag}`
+    partDetailTags.appendChild(li)
+  })
+  
+}
+
+  
+  //Display Parts Data in Parts List
+  function renderInPartsList(partObj) {
     //console.log(partObj);
     const input = document.createElement("input");
     const label = document.createElement("label");
@@ -181,21 +243,22 @@ function renderInPartsList(partObj) {
     label.textContent = partObj.name;
     partsList.appendChild(input);
     partsList.appendChild(label);
-}
-
-// Display uploaded file
-function displayUploadedFile(file) {
-  var reader = new FileReader();
-  reader.onload = function (e) {
-    displayImage.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-}
-
-
-
-//INITIALIZERS
-getParts(partURL)
-    .then(partsArr => {
-        partsArr.forEach(renderInPartsList);
-    })
+  }
+  
+  // Display uploaded file
+  function displayUploadedFile(file) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      displayImage.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+  
+  
+  
+  //INITIALIZERS
+  getParts(partURL)
+  .then(partsArr => {
+    partsArr.forEach(renderInPartsList);
+  })
+  
