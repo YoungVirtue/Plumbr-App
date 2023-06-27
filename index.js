@@ -17,7 +17,7 @@ const jobImgIcon = document.querySelector("#job-image-icon");
 const detailState = document.querySelector("#detail-state");
 const partsList = document.querySelector("#parts-list");
 const partsDropdown = document.querySelector("#dropdown");
-
+const jobIcons = document.querySelector("#job-icons");
 
 
 //FETCH FUNCTIONS
@@ -91,6 +91,10 @@ function handleJobSubmit(e) {
     image: e.target["job-img-submit"].value,
     parts: values,
   }
+  const image = document.createElement("img")
+  image.src = e.target["job-img-submit"].value
+  image.id = e.target["job-name-submit"].value
+  jobIcons.appendChild(image);
   e.target.reset();
   fetch(jobURL, {
     method: "POST",
@@ -98,8 +102,8 @@ function handleJobSubmit(e) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newJob),
-  }).then(() => alert(`${newJob.name} submitted!`));
-}
+  }).then(() => alert(`${newJob.name} submitted!`))
+  };
 
 //Handle Parts Dropdown
 function handlePartsDropdown(e) {
@@ -157,6 +161,8 @@ function handleDrop(e) {
 }
 
 //RENDER FUNCTIONS
+
+//Display Parts Data in Parts List
 function renderInPartsList(partObj) {
     //console.log(partObj);
     const input = document.createElement("input");
