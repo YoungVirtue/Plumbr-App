@@ -1,5 +1,7 @@
 //GLOBALS
 
+const URL = "http://localhost:3000/plumbing_parts";
+
 //DOM SELECTORS
 const dropArea = document.getElementById("drop_area");
 const fileInput = document.getElementById("file_input");
@@ -14,6 +16,11 @@ const jobImgIcon = document.querySelector("#job-image-icon");
 const detailState = document.querySelector("#detail-state");
 
 //FETCH FUNCTIONS
+
+function getParts(url) {
+  return fetch(url)
+  .then(res => res.json())
+}
 
 //EVENT LISTENERS
 
@@ -131,3 +138,5 @@ function displayUploadedFile(file) {
 }
 
 //INITIALIZERS
+
+getParts(URL)
