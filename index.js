@@ -13,7 +13,7 @@ const newPartButton = document.getElementById("new-part-btn");
 const newPartForm = document.querySelector("#new-part-form");
 const newJobButton = document.getElementById("new-job-btn");
 const newJobForm = document.querySelector("#new-job-form");
-const jobImgIcon = document.querySelector("#job-image-icon");
+// const jobImgIcon = document.querySelector("#job-image-icon");
 const detailState = document.querySelector("#detail-state");
 const partsList = document.querySelector("#parts-list");
 const partsDropdown = document.querySelector("#dropdown");
@@ -38,7 +38,6 @@ newJobForm.addEventListener("submit", handleJobSubmit);
 partsDropdown.addEventListener("click", handlePartsDropdown);
 
 //Detail State Toggle
-jobImgIcon.addEventListener("click", toggleDetailState);
 
 //Create New Part Button State Toggle
 newPartButton.addEventListener("click", toggleNewPartState);
@@ -85,17 +84,24 @@ function handleJobSubmit(e) {
   e.preventDefault();
   const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
   const values = Array.from(checkboxes).map(checkbox => checkbox.value);
+
   const newJob = {
     name: e.target["job-name-submit"].value,
     description: e.target["job-descr-submit"].value,
     image: e.target["job-img-submit"].value,
     parts: values,
   }
+
   const image = document.createElement("img")
   image.src = e.target["job-img-submit"].value
   image.id = e.target["job-name-submit"].value
   jobIcons.appendChild(image);
+  image.addEventListener("click", () => {
+    toggleDetailState()
+  });
+
   e.target.reset();
+
   fetch(jobURL, {
     method: "POST",
     headers: {
@@ -103,20 +109,20 @@ function handleJobSubmit(e) {
     },
     body: JSON.stringify(newJob),
   }).then(() => alert(`${newJob.name} submitted!`))
-  };
+};
 
 //Handle Parts Dropdown
 function handlePartsDropdown(e) {
-    if (partsList.classList.contains("hidden")) {
-        partsList.classList.remove("hidden");
-      } else {
-        partsList.classList.add("hidden");
-      }
+  if (partsList.classList.contains("hidden")) {
+    partsList.classList.remove("hidden");
+  } else {
+    partsList.classList.add("hidden");
+  }
 }
 
 //For Detail State Toggle
 function toggleDetailState(e) {
-  e.preventDefault();
+  // e.preventDefault();
   if (detailState.classList.contains("hidden")) {
     detailState.classList.remove("hidden");
   } else {
