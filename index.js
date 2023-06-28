@@ -1,9 +1,7 @@
-
-
 //GLOBALS
 
 const partURL = "http://localhost:3000/plumbing_parts";
-const jobURL = "http://localhost:3000/jobs"
+const jobURL = "http://localhost:3000/jobs";
 
 //DOM SELECTORS
 const dropArea = document.getElementById("drop_area");
@@ -33,23 +31,22 @@ function getParts(url) {
 }
 
 function getJobs(url) {
-  return fetch(url)
-  .then(res=> res.json())
+  return fetch(url).then((res) => res.json());
 }
 
 //EVENT LISTENERS
 
 //Search Bar Input
 searchBar.addEventListener("input", (e) => {
-    const searchText = e.target.value.toLowerCase();
-  getJobs(jobURL)
-      .then(jobs => {
-        const filteredJobs = jobs.filter(job => job.name.toLowerCase().includes(searchText));
-        filteredJobs.forEach(job => renderDetailState(job));
-      });
-      toggleDetailState()
+  const searchText = e.target.value.toLowerCase();
+  getJobs(jobURL).then((jobs) => {
+    const filteredJobs = jobs.filter((job) =>
+      job.name.toLowerCase().includes(searchText)
+    );
+    filteredJobs.forEach((job) => renderDetailState(job));
   });
-  
+  toggleDetailState();
+});
 
 //New Part Form Submit
 newPartForm.addEventListener("submit", handlePartSubmit);
@@ -65,16 +62,6 @@ partsDropdown.addEventListener("click", handlePartsDropdown);
 //Create New Part Button State Toggle
 newPartButton.addEventListener("click", toggleNewPartState);
 newJobButton.addEventListener("click", toggleNewJobState);
-
-// Handle file upload via input
-// fileInput.addEventListener("change", handleJobSubmit(this.files[0]));
-
-// Handle file upload via drag and drop
-// ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-//   dropArea.addEventListener(eventName, preventDefaults, false);
-// });
-
-// dropArea.addEventListener("drop", handleDrop, false);
 
 //EVENT HANDLERS
 
@@ -96,39 +83,38 @@ function handlePartSubmit(e) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newPart),
-  })
-  .then(() => alert(`${newPart.name} submitted!`));
-  
+  }).then(() => alert(`${newPart.name} submitted!`));
 }
 
 //Handle New Job Submit
 
 function handleJobSubmit(e) {
   e.preventDefault();
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-  const values = Array.from(checkboxes).map(checkbox => checkbox.value);
+  const checkboxes = document.querySelectorAll(
+    'input[type="checkbox"]:checked'
+  );
+  const values = Array.from(checkboxes).map((checkbox) => checkbox.value);
 
   const newJob = {
     name: e.target["job-name-submit"].value,
     description: e.target["job-descr-submit"].value,
     image: e.target["job-img-submit"].value,
     parts: values,
-  }
+  };
 
-  const image = document.createElement("img")
-  image.src = e.target["job-img-submit"].value
-  image.classList.add("rounded-5", "p-2")
-  
+  const image = document.createElement("img");
+  image.src = e.target["job-img-submit"].value;
+  image.classList.add("rounded-5", "p-2");
+
   jobIcons.appendChild(image);
   image.addEventListener("click", (e) => {
     if (detailState.classList.contains("hidden")) {
       detailState.classList.remove("hidden");
     } else if (e.target.src === imageDetail.src) {
       detailState.classList.add("hidden");
-    } 
-    renderDetailState(newJob)
+    }
+    renderDetailState(newJob);
   });
-  
 
   e.target.reset();
 
@@ -138,13 +124,15 @@ function handleJobSubmit(e) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(newJob),
-  }).then((res) => {
-    alert(`${newJob.name} submitted!`)
-    return res.json()
-  }) .then(newJobJson => {
-    image.dataset.jobId = newJobJson.id;
-  });
-};
+  })
+    .then((res) => {
+      alert(`${newJob.name} submitted!`);
+      return res.json();
+    })
+    .then((newJobJson) => {
+      image.dataset.jobId = newJobJson.id;
+    });
+}
 
 //Handle Parts Dropdown
 function handlePartsDropdown() {
@@ -161,20 +149,17 @@ function toggleDetailState(e) {
     detailState.classList.remove("hidden");
   } else if (e.target.src === imageDetail.src) {
     detailState.classList.add("hidden");
-  } 
+  }
 }
 
-
-
 //For Part Detail Toggle
-
 
 function togglePartCard(e) {
   if (partDetailCard.classList.contains("hidden")) {
     partDetailCard.classList.remove("hidden");
   } else if (e.target.textContent === partCardName.textContent) {
     partDetailCard.classList.add("hidden");
-  } 
+  }
 }
 
 //For New Part Button State Toggle
@@ -199,16 +184,12 @@ function toggleNewJobState() {
   }
 }
 
-//For Drag & Drop
-function preventDefaults(e) {
-  e.preventDefault();
-  e.stopPropagation();
-}
-
-function handleDrop(e) {
-  var dt = e.dataTransfer;
-  var file = dt.files[0];
-  displayUploadedFile(file);
+//For Delete Job Button
+function deleteJob(job) {
+  fetch(`${jobURL}/${job.id}`), {
+    method: "DELETE",
+  }
+  console.log(job)
 }
 
 //RENDER FUNCTIONS
@@ -216,10 +197,10 @@ function handleDrop(e) {
 //Render Existing Jobs in Home State Icons
 
 function renderIconsHomeState(jobsObj) {
-  const jobIconImg = document.createElement('img')
-  jobIconImg.src = jobsObj.image
-  jobIconImg.classList.add("rounded-5", "p-2")
-  jobIcons.appendChild(jobIconImg)
+  const jobIconImg = document.createElement("img");
+  jobIconImg.src = jobsObj.image;
+  jobIconImg.classList.add("rounded-5", "p-2");
+  jobIcons.appendChild(jobIconImg);
 
   jobIconImg.addEventListener("click", (e) => {
     toggleDetailState(e);
@@ -243,94 +224,84 @@ function renderDetailState(newJob) {
   editDeleteButtons.innerHTML = "";
   editDeleteButtons.appendChild(editButton);
   editDeleteButtons.appendChild(deleteButton);
-  
 
+  deleteButton.addEventListener("click", deleteJob);
 
-
-  
-  
   const jobPartsArr = newJob.parts;
-  
+
   detailImg.src = newJob.image;
   detailName.textContent = newJob.name;
   detailDescr.textContent = newJob.description;
   ul.innerHTML = "";
-  
+
   jobPartsArr.forEach((part) => {
-    getParts(partURL + "/" + part)
-    .then((part) => {
-      let li = document.createElement('li');
-      li.textContent = part.name
-      ul.appendChild(li)
-      li.addEventListener('click', (e) => {
-        togglePartCard(e)
-        renderPartsDetail(part)
-      })
-    })
-  })
+    getParts(partURL + "/" + part).then((part) => {
+      let li = document.createElement("li");
+      li.textContent = part.name;
+      ul.appendChild(li);
+      li.addEventListener("click", (e) => {
+        togglePartCard(e);
+        renderPartsDetail(part);
+      });
+    });
+  });
 }
 
 function renderPartsDetail(part) {
-  const partDetailImage = document.querySelector("#part-detail-img")
-  const partDetailName = document.querySelector("#part-detail-name")
-  const partDetailSize = document.querySelector("#part-detail-size")
-  const partDetailType = document.querySelector("#part-detail-type")
-  const partDetailTags = document.querySelector("#part-detail-tags")
-  partDetailTags.innerHTML = ""
-  const tagArr = part.tags
+  const partDetailImage = document.querySelector("#part-detail-img");
+  const partDetailName = document.querySelector("#part-detail-name");
+  const partDetailSize = document.querySelector("#part-detail-size");
+  const partDetailType = document.querySelector("#part-detail-type");
+  const partDetailTags = document.querySelector("#part-detail-tags");
+  partDetailTags.innerHTML = "";
+  const tagArr = part.tags;
 
-  partDetailImage.src = part.image
-  partDetailName.textContent = part.name
-  partDetailSize.textContent = `Size: ${part.size}`
-  partDetailType.textContent = `Type: ${part.type}`
+  partDetailImage.src = part.image;
+  partDetailImage.id = part.id;
+  partDetailName.textContent = part.name;
+  partDetailSize.textContent = `Size: ${part.size}`;
+  partDetailType.textContent = `Type: ${part.type}`;
   tagArr.forEach((tag) => {
-    let li = document.createElement('li')
-    li.textContent = `#${tag}`
-    li.classList.add("list-group-item") 
-    partDetailTags.appendChild(li)
-  })
-  
+    let li = document.createElement("li");
+    li.textContent = `#${tag}`;
+    li.classList.add("list-group-item");
+    partDetailTags.appendChild(li);
+  });
 }
 
-  
-  //Display Parts Data in Parts List
-  function renderInPartsList(partObj) {
-    const formCheck = document.createElement('label')
-    const input = document.createElement("input");
-    const label = document.createElement("span");
-    formCheck.classList.add("label")
-    input.type = "checkbox";
-    input.id = partObj.id;
-    input.name = partObj.name;
-    input.value = partObj.id;
-    input.classList.add("nes-checkbox")
-    label.htmlFor = partObj.id;
-    label.textContent = partObj.name;
-    // label.classList.add("label")
-    partsList.appendChild(formCheck)
-    formCheck.appendChild(input);
-    formCheck.appendChild(label);
-  }
-  
-  // Display uploaded file
-  function displayUploadedFile(file) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      displayImage.src = e.target.result;
-    };
-    reader.readAsDataURL(file);
-  }
-  
-  
-  
-  //INITIALIZERS
-  getParts(partURL)
-  .then(partsArr => {
-    partsArr.forEach(renderInPartsList);
-  })
+//Display Parts Data in Parts List
+function renderInPartsList(partObj) {
+  const formCheck = document.createElement("label");
+  const input = document.createElement("input");
+  const label = document.createElement("span");
+  formCheck.classList.add("label");
+  input.type = "checkbox";
+  input.id = partObj.id;
+  input.name = partObj.name;
+  input.value = partObj.id;
+  input.classList.add("nes-checkbox");
+  label.htmlFor = partObj.id;
+  label.textContent = partObj.name;
+  // label.classList.add("label")
+  partsList.appendChild(formCheck);
+  formCheck.appendChild(input);
+  formCheck.appendChild(label);
+}
 
-  getJobs(jobURL)
-  .then(jobsArr => {
-    jobsArr.forEach(renderIconsHomeState);
-  })
-  
+// Display uploaded file
+function displayUploadedFile(file) {
+  var reader = new FileReader();
+  reader.onload = function (e) {
+    displayImage.src = e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+//INITIALIZERS
+getParts(partURL).then((partsArr) => {
+  partsArr.forEach(renderInPartsList);
+});
+
+getJobs(jobURL).then((jobsArr) => {
+  jobsArr.forEach(renderIconsHomeState);
+});
