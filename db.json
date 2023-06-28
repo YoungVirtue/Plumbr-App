@@ -10,7 +10,7 @@
         "3",
         "4"
       ],
-      "image": "https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/Articles/water-heater-installation-basics-2022-hero.jpg"
+      "image": "assets/water heater.png"
     },
     {
       "id": 2,
@@ -20,7 +20,7 @@
         "5",
         "8"
       ],
-      "image": "https://www.truevalue.com/media/magefan_blog/fixing-faucet-wrench-o-rings-840x560-75.jpg"
+      "image": "assets/sink.png"
     },
     {
       "id": 3,
@@ -29,7 +29,7 @@
       "parts": [
         "3"
       ],
-      "image": "https://www.allamericanpha.com/wp-content/uploads/2018/07/how-often-should-you-clean-your-drains-1024x683.jpg"
+      "image": "assets/drain.png"
     },
     {
       "id": 4,
@@ -39,7 +39,7 @@
         "7",
         "9"
       ],
-      "image": "https://empire-s3-production.bobvila.com/articles/wp-content/uploads/2018/01/iStock-1199720285.jpg"
+      "image": "assets/toilet.png"
     }
   ],
   "plumbing_parts": [

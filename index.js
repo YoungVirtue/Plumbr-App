@@ -71,11 +71,11 @@ fileInput.addEventListener("change", function (e) {
 });
 
 // Handle file upload via drag and drop
-["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
-  dropArea.addEventListener(eventName, preventDefaults, false);
-});
+// ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
+//   dropArea.addEventListener(eventName, preventDefaults, false);
+// });
 
-dropArea.addEventListener("drop", handleDrop, false);
+// dropArea.addEventListener("drop", handleDrop, false);
 
 //EVENT HANDLERS
 
