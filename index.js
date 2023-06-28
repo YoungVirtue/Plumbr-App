@@ -257,7 +257,7 @@ function renderPartsDetail(part) {
   const tagArr = part.tags;
 
   partDetailImage.src = part.image;
-  partDetailImage.id = part.id;
+  //partDetailImage.id = part.id;
   partDetailName.textContent = part.name;
   partDetailSize.textContent = `Size: ${part.size}`;
   partDetailType.textContent = `Type: ${part.type}`;
