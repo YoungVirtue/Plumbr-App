@@ -1,3 +1,4 @@
+
 #drop_area {
     width: 300px;
     height: 200px;
@@ -11,9 +12,44 @@
     display: none;
   }
 
+  .mb-2.hidden.parts-list {
+    display: none;
+  }
+
   .card-img-top {
     width: 100%;
     height: 15vw;
     object-fit: contain;
   }
-  
+
+
+  .mb-2.parts-list {
+    align-items: left;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  /* @keyframes pixelate {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 50px 50px;
+    }
+} */
+
+/* body {
+    height: 100vh;
+    margin: 0;
+    background-size: 50px 50px;
+    background-image: 
+        linear-gradient(45deg, #888 25%, transparent 25%),
+        linear-gradient(-45deg, #888 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #a4a4a4 75%),
+        linear-gradient(-45deg, transparent 75%, #979797 75%);
+    background-color: #bb0606 ; 
+    animation: pixelate 2s linear infinite;
+} */

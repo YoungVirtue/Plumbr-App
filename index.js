@@ -1,3 +1,5 @@
+
+
 //GLOBALS
 
 const partURL = "http://localhost:3000/plumbing_parts";
@@ -271,19 +273,18 @@ function renderPartsDetail(part) {
   
   //Display Parts Data in Parts List
   function renderInPartsList(partObj) {
-    //console.log(partObj);
-    const formCheck = document.createElement('div')
+    const formCheck = document.createElement('label')
     const input = document.createElement("input");
-    const label = document.createElement("label");
-    formCheck.classList.add("form-check")
+    const label = document.createElement("span");
+    formCheck.classList.add("label")
     input.type = "checkbox";
     input.id = partObj.id;
     input.name = partObj.name;
     input.value = partObj.id;
-    input.classList.add("form-check-input")
+    input.classList.add("nes-checkbox")
     label.htmlFor = partObj.id;
     label.textContent = partObj.name;
-    label.classList.add("form-check-label")
+    // label.classList.add("label")
     partsList.appendChild(formCheck)
     formCheck.appendChild(input);
     formCheck.appendChild(label);

@@ -9,144 +9,136 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
         <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+        <link href="https://unpkg.com/nes.css/css/nes.css" rel="stylesheet" />
+        <link rel="stylesheet" href="./node_modules/nes.css/css/nes.min.css">
+        <style>
+            html, body, pre, code, kbd, samp {
+                font-family: "Press Start 2P";
+            }
+          </style>
     </head>
     <body>
-        <!--Search bar-->
-        <div class="col">
-            <div class="row">
-                <input class="sticky-top" type="search" placeholder="Search Jobs..." id="search-bar">
+        <div class ="container animated-background">
+            <!--Search bar-->
+            <div class="col">
+                <div class="row">
+                    <input class="sticky-top" type="search" placeholder="Search Jobs..." id="search-bar">
+                </div>
             </div>
-        </div>
-
-        <!--This is where the clickable job images go-->
-        <div class = "col-2 lg-4">
-            <div class="row" id="job-icons">
+    
+            <!--HEADER-->
+            <h1>PLUMBR</h1>
+    
+            <!--This is where the clickable job images go-->
+            <div class = "col-2 lg-4">
+                <div class="row" id="job-icons">
+                </div>
             </div>
-        </div>
-
-        <!--New Part State-->
-        <div class="container">
-            <div class="row">
-                <form id="new-part-form" class="hidden">
-                    <div class="mb-2">
-                        <div id="drop_area">
-                            Drag and Drop Image Here
+    
+            <!--New Part State-->
+            <div class="container">
+                <div class="row">
+                    <form id="new-part-form" class="hidden">
+                        <div class="mb-2">
+                            <div id="drop_area">
+                                Drag and Drop Image Here
+                            </div>
+                            
+                            <input type="file" id="file_input" accept="image/*">
+                            <br/>
+                            
+                            <input type="text" id="url_input" placeholder="Or enter image URL here" name="part-img-submit">
+                            
+                            <img id="display_image" style="width: 300px; height: auto;">
                         </div>
-                        
-                        <input type="file" id="file_input" accept="image/*">
-                        <br/>
-                        
-                        <input type="text" id="url_input" placeholder="Or enter image URL here" name="part-img-submit">
-                        
-                        <img id="display_image" style="width: 300px; height: auto;">
-                    </div>
-                    <div class="mb-2">
-                        <input type="text" placeholder="Part Name" class="form-control" name="part-name-submit">
-                    </div>
-                    <div class="mb-2">
-                        <input type="text" placeholder="Size" class="form-control" name="part-size-submit">
-                    </div>
-                    <div class="mb-2">
-                        <input type="text" placeholder="Type" class="form-control" name="part-type-submit">
-                    </div>
-                    <div class="mb-2">
-                        <input type="text" placeholder="Tags" class="form-control" name="part-tags-submit">
-                    </div>
-                    <div class="mb-2">
-                        <input type="submit" value="Submit" class="submit-btn">
-                    </div>
-                </form>
-                <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
+                        <div class="mb-2">
+                            <input type="text" placeholder="Part Name" class="form-control" name="part-name-submit">
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" placeholder="Size" class="form-control" name="part-size-submit">
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" placeholder="Type" class="form-control" name="part-type-submit">
+                        </div>
+                        <div class="mb-2">
+                            <input type="text" placeholder="Tags" class="form-control" name="part-tags-submit">
+                        </div>
+                        <div class="mb-2">
+                            <input type="submit" value="Submit" class="submit-btn">
+                        </div>
+                    </form>
+                    <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
+                </div>
             </div>
-        </div>
-
-        <!--New Job State-->
-        <div class="container">
-            <div class="row">
-                <form id="new-job-form" class="hidden">
-                    <div class="mb-2">
-                        <div id="drop_area">
-                            Drag and Drop Image Here
+    
+            <!--New Job State-->
+            <div class="container">
+                <div class="row">
+                    <form id="new-job-form" class="hidden">
+                        <div class="mb-2">
+                            <div id="drop_area">
+                                Drag and Drop Image Here
+                            </div>
+                            
+                            <input type="file" id="file_input" accept="image/*">
+                            <br/>
+                            
+                            <input type="text" id="url_input" placeholder="Or enter image URL here" name="job-img-submit">   
+                            
+                            <img id="display_image" style="width: 300px; height: auto;">
                         </div>
-                        
-                        <input type="file" id="file_input" accept="image/*">
-                        <br/>
-                        
-                        <input type="text" id="url_input" placeholder="Or enter image URL here" name="job-img-submit">   
-                        
-                        <img id="display_image" style="width: 300px; height: auto;">
-                    </div>
-                    <div class="mb-2">
-                        <input type="text" placeholder="Job Name" class="form-control" name="job-name-submit">
-                    </div>
-                    <div class="mb-2">
-                        <input type="text" placeholder="Description" class="form-control" name="job-descr-submit">
-                    </div>
-                    <!-- <div class="row-auto mb-2">
-                        <label for="job-parts-size-filter">Filter By Size</label>
-                        <select name="job-parts-size-filter">
-                            <option value="3/4in">3/4in</option>
-                            <option value="1/2in">1/2in</option>
-                        </select>
-                    </div>
-                    <div class="row-auto mb-2">
-                        <label for="job-parts-type-filter">Filter By Type</label>
-                        <select name="job-parts-type-filter">
-                            <option value="3/4in">3/4in</option>
-                            <option value="1/2in">1/2in</option>
-                        </select>
-                    </div>
-                    <div class="row-auto mb-2">
-                        <label for="job-parts-tags-filter">Filter By Tags</label>
-                        <select name="job-parts-tags-filter">
-                            <option value="3/4in">3/4in</option>
-                            <option value="1/2in">1/2in</option>
-                        </select>
-                    </div> -->
-                    <fieldset>
-                        <legend>Add Parts
-                            <button id="dropdown" type="button" class="btn btn-outline-dark btn-sm">v</button>
-                        </legend>
-                        <div class = "mb-2 hidden" id="parts-list">
-                            <!--This is where we need to creation input elements with values & text in JS-->
+                        <div class="mb-2">
+                            <input type="text" placeholder="Job Name" class="form-control" name="job-name-submit">
                         </div>
-                    </fieldset>
-                    <div class="mb-2">
-                        <input type="submit" value="Submit" class="submit-btn">
-                    </div>
-                </form>
-                <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-job-btn">Create New Job</button>
+                        <div class="mb-2">
+                            <input type="text" placeholder="Description" class="form-control" name="job-descr-submit">
+                        </div>
+                        <fieldset>
+                            <legend>Add Parts
+                                <button id="dropdown" type="button" class="btn btn-outline-dark btn-sm">v</button>
+                            </legend>
+                            <div class = "mb-2 hidden parts-list" id="parts-list">
+                                <!--This is where we need to creation input elements with values & text in JS-->
+                            </div>
+                        </fieldset>
+                        <div class="mb-2">
+                            <input type="submit" value="Submit" class="submit-btn">
+                        </div>
+                    </form>
+                    <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-job-btn">Create New Job</button>
+                </div>
             </div>
-        </div>
-
-        <!--Detail State-->
-            <div class="container hidden" id="detail-state">
-                <div class = "row justify-content-start">
-                    <div class = "col-2">
-                        <img src="https://img.freepik.com/premium-vector/plumber-mascot-full-body-illustration_44241-83.jpg?w=1060" id="image-detail" class="img-thumbnail">
-                    </div>
-                        <div class = "col-10">
-                            <h2 id="job-detail-name">Job Name</h2>
-                            <h4 id="job-description-name">Description</h4>
+    
+            <!--Detail State-->
+                <div class="container hidden" id="detail-state">
+                    <div class = "row justify-content-start">
+                        <div class = "col-2">
+                            <img src="https://img.freepik.com/premium-vector/plumber-mascot-full-body-illustration_44241-83.jpg?w=1060" id="image-detail" class="img-thumbnail">
                         </div>
-                    </div>
-                <div class = "row">
-                    <div class = "col-4">
-                        <ul id="job-parts-detail-list"></ul>
-                    </div>
-                <!--Detail of Part-->
-                    <div class="card text-center hidden" id="part-detail-card" style="width: 18rem;">
-                        <img src="" alt="Part image" id="part-detail-img" class="card-img-top">
-                        <div class="card-body">
-                            <h4 class="card-title" id="part-detail-name">Part Name</h4>
-                            <p class="card-text" id="part-detail-size">Size</p>
-                            <p class="card-text" id="part-detail-type">Type</p>
-                            <div class="card-header">Tags</div>
-                            <ul class = "list-group list-group-flush" id="part-detail-tags">Tags</ul>
+                            <div class = "col-10">
+                                <h2 id="job-detail-name">Job Name</h2>
+                                <h4 id="job-description-name">Description</h4>
+                            </div>
+                        </div>
+                    <div class = "row">
+                        <div class = "col-4">
+                            <ul id="job-parts-detail-list"></ul>
+                        </div>
+                    <!--Detail of Part-->
+                        <div class="card text-center hidden" id="part-detail-card" style="width: 18rem;">
+                            <img src="" alt="Part image" id="part-detail-img" class="card-img-top">
+                            <div class="card-body">
+                                <h4 class="card-title" id="part-detail-name">Part Name</h4>
+                                <p class="card-text" id="part-detail-size">Size</p>
+                                <p class="card-text" id="part-detail-type">Type</p>
+                                <div class="card-header">Tags</div>
+                                <ul class = "list-group list-group-flush" id="part-detail-tags">Tags</ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+        </div>
         <script src="index.js" async defer></script>
     </body>
 </html>
