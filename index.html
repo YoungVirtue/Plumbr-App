@@ -113,8 +113,8 @@
             <!--Detail State-->
                 <div class="container hidden mt-3" id="detail-state">
                     <div class = "row justify-content-start">
-                        <div class = "col-3">
-                            <img src="https://img.freepik.com/premium-vector/plumber-mascot-full-body-illustration_44241-83.jpg?w=1060" id="image-detail" class="rounded-4 detail">
+                        <div class = "col-4">
+                            <img src="" id="image-detail" class="rounded-4 detail">
                         </div>
                             <div class = "col-9">
                                 <h2 id="job-detail-name">Job Name</h2>
@@ -122,12 +122,14 @@
                             </div>
                         </div>
                     <div class = "row">
-                        <div class = "col-6">
-                            <ul id="job-parts-detail-list"></ul>
+                        <div class = "col-4 mt-3">
+                            <span>Parts Needed:</span>
+                            <ul class= "mt-2" id="job-parts-detail-list"></ul>
                         </div>
                     <!--Detail of Part-->
-                        <div class="card text-center hidden" id="part-detail-card" style="width: 18rem;">
-                            <img src="" alt="Part image" id="part-detail-img" class="card-img-top">
+                    <div class="col-8 ms-2">
+                        <div class="card text-center hidden" id="part-detail-card">
+                            <img src="" alt="Part image" id="part-detail-img" class="card-img-top mt-2">
                             <div class="card-body">
                                 <h4 class="card-title" id="part-detail-name">Part Name</h4>
                                 <p class="card-text" id="part-detail-size">Size</p>
@@ -138,6 +140,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         <script src="index.js" async defer></script>
     </body>

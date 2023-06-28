@@ -29,14 +29,31 @@
 }
 
 .rounded-4.detail {
-  width: 75px;
-  height: 75px;
+  width: 90px;
+  height: 90px;
   margin-right: 20px;
+}
+
+.label {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 
   #job-icons {
     justify-content: center;
+  }
+
+  #job-detail-name {
+    font-size: larger;
+  }
+
+  #job-description-name {
+    font-size: small;
+  }
+
+  li:hover {
+    text-decoration: none;
+    text-shadow: 1px 1px 1px #555;
   }
 
 

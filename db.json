@@ -40,6 +40,16 @@
         "9"
       ],
       "image": "assets/toilet.png"
+    },
+    {
+      "name": "Clogged Sink",
+      "description": "sink is clogged",
+      "image": "assets/pipes.png",
+      "parts": [
+        "1",
+        "4"
+      ],
+      "id": 5
     }
   ],
   "plumbing_parts": [

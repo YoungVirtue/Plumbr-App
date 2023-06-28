@@ -119,8 +119,12 @@ function handleJobSubmit(e) {
   image.classList.add("rounded-5", "p-2")
   
   jobIcons.appendChild(image);
-  image.addEventListener("click", () => {
-    toggleDetailState()
+  image.addEventListener("click", (e) => {
+    if (detailState.classList.contains("hidden")) {
+      detailState.classList.remove("hidden");
+    } else if (e.target.src === imageDetail.src) {
+      detailState.classList.add("hidden");
+    }
     renderDetailState(newJob)
   });
   
