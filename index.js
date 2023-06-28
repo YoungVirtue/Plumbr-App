@@ -19,10 +19,11 @@ const detailState = document.querySelector("#detail-state");
 const partsList = document.querySelector("#parts-list");
 const partsDropdown = document.querySelector("#dropdown");
 const jobIcons = document.querySelector("#job-icons");
-const searchBar = document.querySelector("#search-bar")
-const partDetailCard = document.querySelector("#part-detail-card")
-const imageDetail = document.querySelector("#image-detail")
-const partCardName = document.querySelector("#part-detail-name")
+const searchBar = document.querySelector("#search-bar");
+const partDetailCard = document.querySelector("#part-detail-card");
+const imageDetail = document.querySelector("#image-detail");
+const partCardName = document.querySelector("#part-detail-name");
+const editDeleteButtons = document.querySelector("#edit-delete-buttons");
 let selectedJobs;
 
 //FETCH FUNCTIONS
@@ -124,7 +125,7 @@ function handleJobSubmit(e) {
       detailState.classList.remove("hidden");
     } else if (e.target.src === imageDetail.src) {
       detailState.classList.add("hidden");
-    }
+    } 
     renderDetailState(newJob)
   });
   
@@ -160,16 +161,20 @@ function toggleDetailState(e) {
     detailState.classList.remove("hidden");
   } else if (e.target.src === imageDetail.src) {
     detailState.classList.add("hidden");
-  }
+  } 
 }
 
+
+
 //For Part Detail Toggle
+
+
 function togglePartCard(e) {
   if (partDetailCard.classList.contains("hidden")) {
     partDetailCard.classList.remove("hidden");
   } else if (e.target.textContent === partCardName.textContent) {
     partDetailCard.classList.add("hidden");
-  }
+  } 
 }
 
 //For New Part Button State Toggle
@@ -225,16 +230,30 @@ function renderIconsHomeState(jobsObj) {
 //Display Detail in Job Detail State
 
 function renderDetailState(newJob) {
-  const detailImg = document.querySelector("#image-detail")
-  const detailName = document.querySelector("#job-detail-name")
-  const detailDescr = document.querySelector("#job-description-name")
-  const ul = document.querySelector("#job-parts-detail-list")
+  const detailImg = document.querySelector("#image-detail");
+  const detailName = document.querySelector("#job-detail-name");
+  const detailDescr = document.querySelector("#job-description-name");
+  const ul = document.querySelector("#job-parts-detail-list");
+  const deleteButton = document.createElement("button");
+  const editButton = document.createElement("button");
+  editButton.classList.add("edit-button", "my-2");
+  editButton.textContent = "Edit Job";
+  deleteButton.className = "delete-button";
+  deleteButton.textContent = "Delete Job";
+  editDeleteButtons.innerHTML = "";
+  editDeleteButtons.appendChild(editButton);
+  editDeleteButtons.appendChild(deleteButton);
   
-  const jobPartsArr = newJob.parts
+
+
+
   
-  detailImg.src = newJob.image
-  detailName.textContent = newJob.name
-  detailDescr.textContent = newJob.description
+  
+  const jobPartsArr = newJob.parts;
+  
+  detailImg.src = newJob.image;
+  detailName.textContent = newJob.name;
+  detailDescr.textContent = newJob.description;
   ul.innerHTML = "";
   
   jobPartsArr.forEach((part) => {
@@ -248,7 +267,6 @@ function renderDetailState(newJob) {
         renderPartsDetail(part)
       })
     })
-    // renderPartsDetail(part[0])
   })
 }
 

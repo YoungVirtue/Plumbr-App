@@ -68,7 +68,7 @@
                             <input type="submit" value="Submit" class="submit-btn">
                         </div>
                     </form>
-                    <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-part-btn">Create New Part</button>
+                    <button type= "submit" id="new-part-btn">Create New Part</button>
                 </div>
             </div>
     
@@ -96,7 +96,7 @@
                         </div>
                         <fieldset>
                             <legend>Add Parts
-                                <button id="dropdown" type="button" class="btn btn-outline-dark btn-sm">v</button>
+                                <button id="dropdown" type="button" class="btn-sm">v</button>
                             </legend>
                             <div class = "mb-2 hidden parts-list" id="parts-list">
                                 <!--This is where we need to creation input elements with values & text in JS-->
@@ -106,7 +106,7 @@
                             <input type="submit" value="Submit" class="submit-btn">
                         </div>
                     </form>
-                    <button type= "submit" class="btn btn-light text-nowrap rounded border-secondary-subtle" id="new-job-btn">Create New Job</button>
+                    <button type= "submit" id="new-job-btn">Create New Job</button>
                 </div>
             </div>
     
@@ -127,19 +127,20 @@
                             <ul class= "mt-2" id="job-parts-detail-list"></ul>
                         </div>
                     <!--Detail of Part-->
-                    <div class="col-8 ms-2">
-                        <div class="card text-center hidden" id="part-detail-card">
-                            <img src="" alt="Part image" id="part-detail-img" class="card-img-top mt-2">
-                            <div class="card-body">
-                                <h4 class="card-title" id="part-detail-name">Part Name</h4>
-                                <p class="card-text" id="part-detail-size">Size</p>
-                                <p class="card-text" id="part-detail-type">Type</p>
-                                <div class="card-header">Tags</div>
-                                <ul class = "list-group list-group-flush" id="part-detail-tags">Tags</ul>
+                        <div class="col-8 ms-2">
+                            <div class="card text-center hidden" id="part-detail-card">
+                                <img src="" alt="Part image" id="part-detail-img" class="card-img-top mt-2">
+                                <div class="card-body">
+                                    <h4 class="card-title" id="part-detail-name">Part Name</h4>
+                                    <p class="card-text" id="part-detail-size">Size</p>
+                                    <p class="card-text" id="part-detail-type">Type</p>
+                                    <div class="card-header">Tags</div>
+                                    <ul class = "list-group list-group-flush" id="part-detail-tags">Tags</ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <div class="row" id="edit-delete-buttons"></div>
             </div>
         </div>
         <script src="index.js" async defer></script>
