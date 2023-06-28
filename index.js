@@ -19,6 +19,8 @@ const partsDropdown = document.querySelector("#dropdown");
 const jobIcons = document.querySelector("#job-icons");
 const searchBar = document.querySelector("#search-bar")
 const partDetailCard = document.querySelector("#part-detail-card")
+const imageDetail = document.querySelector("#image-detail")
+let selectedJobs;
 
 //FETCH FUNCTIONS
 
@@ -35,24 +37,13 @@ function getJobs(url) {
 
 //Search Bar Input
 searchBar.addEventListener("input", (e) => {
-    const searchText = e.target.value.toLowerCase(); // Fetch the input value and convert to lowercase
-    
-    // Fetch the jobs data
+    const searchText = e.target.value.toLowerCase();
   getJobs(jobURL)
       .then(jobs => {
-        // Filter the jobs by the search text
         const filteredJobs = jobs.filter(job => job.name.toLowerCase().includes(searchText));
-        
-        // Clear out the current job display
-        // Assuming you have a function `clearJobDisplay()`
-        //clearJobDisplay();
-  
-        // Render the filtered jobs
-        // Assuming you have a function `renderJob(job)` that adds a job to the job display
         filteredJobs.forEach(job => renderDetailState(job));
       });
       toggleDetailState()
-      // partDetailCard.innerHTML=""
   });
   
 
@@ -158,18 +149,16 @@ function handlePartsDropdown() {
 }
 
 //For Detail State Toggle
-function toggleDetailState() {
-  // e.preventDefault();
+function toggleDetailState(e) {
   if (detailState.classList.contains("hidden")) {
     detailState.classList.remove("hidden");
-  } else {
+  } else if (e.target.src === imageDetail.src) {
     detailState.classList.add("hidden");
   }
 }
 
 //For New Part Button State Toggle
 function toggleNewPartState() {
-  // e.preventDefault();
   if (newPartForm.classList.contains("hidden")) {
     newPartForm.classList.remove("hidden");
     newPartButton.textContent = "Done";
@@ -181,7 +170,6 @@ function toggleNewPartState() {
 
 //For New Job Button State Toggle
 function toggleNewJobState() {
-  // e.preventDefault();
   if (newJobForm.classList.contains("hidden")) {
     newJobForm.classList.remove("hidden");
     newJobButton.textContent = "Done";
@@ -204,6 +192,19 @@ function handleDrop(e) {
 }
 
 //RENDER FUNCTIONS
+
+//Render Existing Jobs in Home State Icons
+
+function renderIconsHomeState(jobsObj) {
+  const jobIconImg = document.createElement('img')
+  jobIconImg.src = jobsObj.image
+  jobIcons.appendChild(jobIconImg)
+
+  jobIconImg.addEventListener("click", (e) => {
+    toggleDetailState(e);
+    renderDetailState(jobsObj);
+  });
+}
 
 //Display Detail in Job Detail State
 
@@ -290,5 +291,10 @@ function renderPartsDetail(part) {
   getParts(partURL)
   .then(partsArr => {
     partsArr.forEach(renderInPartsList);
+  })
+
+  getJobs(jobURL)
+  .then(jobsArr => {
+    jobsArr.forEach(renderIconsHomeState);
   })
   
