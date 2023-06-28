@@ -13,25 +13,33 @@
       "image": "https://contentgrid.homedepot-static.com/hdus/en_US/DTCCOMNEW/Articles/water-heater-installation-basics-2022-hero.jpg"
     },
     {
-        "id": 2,
-        "name": "Leaky Faucet Repair",
-        "description": "Repair of a leaky faucet, involves replacing worn-out components",
-        "parts": ["5", "8"],
-        "image": "https://www.truevalue.com/media/magefan_blog/fixing-faucet-wrench-o-rings-840x560-75.jpg"
+      "id": 2,
+      "name": "Leaky Faucet Repair",
+      "description": "Repair of a leaky faucet, involves replacing worn-out components",
+      "parts": [
+        "5",
+        "8"
+      ],
+      "image": "https://www.truevalue.com/media/magefan_blog/fixing-faucet-wrench-o-rings-840x560-75.jpg"
     },
     {
-        "id": 3,
-        "name": "Drain Cleaning",
-        "description": "Cleaning of a clogged drain, usually involves using a drain snake or a plunger",
-        "parts": ["3"],
-        "image": "https://www.allamericanpha.com/wp-content/uploads/2018/07/how-often-should-you-clean-your-drains-1024x683.jpg"
+      "id": 3,
+      "name": "Drain Cleaning",
+      "description": "Cleaning of a clogged drain, usually involves using a drain snake or a plunger",
+      "parts": [
+        "3"
+      ],
+      "image": "https://www.allamericanpha.com/wp-content/uploads/2018/07/how-often-should-you-clean-your-drains-1024x683.jpg"
     },
     {
-        "id": 4,
-        "name": "Toilet Installation",
-        "description": "Installation of a new toilet unit",
-        "parts": ["7", "9"],
-        "image": "https://empire-s3-production.bobvila.com/articles/wp-content/uploads/2018/01/iStock-1199720285.jpg"
+      "id": 4,
+      "name": "Toilet Installation",
+      "description": "Installation of a new toilet unit",
+      "parts": [
+        "7",
+        "9"
+      ],
+      "image": "https://empire-s3-production.bobvila.com/articles/wp-content/uploads/2018/01/iStock-1199720285.jpg"
     }
   ],
   "plumbing_parts": [

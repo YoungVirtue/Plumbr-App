@@ -243,11 +243,12 @@ function renderPartsDetail(part) {
 
   partDetailImage.src = part.image
   partDetailName.textContent = part.name
-  partDetailSize.textContent = part.size
-  partDetailType.textContent = part.type
+  partDetailSize.textContent = `Size: ${part.size}`
+  partDetailType.textContent = `Type: ${part.type}`
   tagArr.forEach((tag) => {
     let li = document.createElement('li')
     li.textContent = `#${tag}`
+    li.classList.add("list-group-item") 
     partDetailTags.appendChild(li)
   })
   
@@ -257,16 +258,21 @@ function renderPartsDetail(part) {
   //Display Parts Data in Parts List
   function renderInPartsList(partObj) {
     //console.log(partObj);
+    const formCheck = document.createElement('div')
     const input = document.createElement("input");
     const label = document.createElement("label");
+    formCheck.classList.add("form-check")
     input.type = "checkbox";
     input.id = partObj.id;
     input.name = partObj.name;
     input.value = partObj.id;
+    input.classList.add("form-check-input")
     label.htmlFor = partObj.id;
     label.textContent = partObj.name;
-    partsList.appendChild(input);
-    partsList.appendChild(label);
+    label.classList.add("form-check-label")
+    partsList.appendChild(formCheck)
+    formCheck.appendChild(input);
+    formCheck.appendChild(label);
   }
   
   // Display uploaded file
