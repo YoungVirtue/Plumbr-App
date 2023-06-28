@@ -22,6 +22,23 @@
     object-fit: contain;
   }
 
+  .rounded-5 {
+    width: 125px;
+    height: 125px;
+    margin-bottom: 20px;
+}
+
+.rounded-4.detail {
+  width: 75px;
+  height: 75px;
+  margin-right: 20px;
+}
+
+
+  #job-icons {
+    justify-content: center;
+  }
+
 
   .mb-2.parts-list {
     align-items: left;
@@ -32,6 +49,15 @@
     flex-direction: column;
   }
 
+  .center-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+     /* Adjust the height as per your requirement */
+  }
+  
+
   /* @keyframes pixelate {
     0% {
         background-position: 0 0;
@@ -41,15 +67,11 @@
     }
 } */
 
-/* body {
+body {
     height: 100vh;
     margin: 0;
-    background-size: 50px 50px;
-    background-image: 
-        linear-gradient(45deg, #888 25%, transparent 25%),
-        linear-gradient(-45deg, #888 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #a4a4a4 75%),
-        linear-gradient(-45deg, transparent 75%, #979797 75%);
-    background-color: #bb0606 ; 
-    animation: pixelate 2s linear infinite;
-} */
+    background-size: 50px 50px; 
+    background-image: url('assets/background.png');
+    /* background-color: #bb0606 ;  */
+    /* animation: pixelate 2s linear infinite;*/
+}

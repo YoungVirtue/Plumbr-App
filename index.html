@@ -28,16 +28,16 @@
             </div>
     
             <!--HEADER-->
-            <h1 class="my-3">PLUMBR</h1>
+            <h1 class="my-3 center-header">PLUMBR</h1>
     
             <!--This is where the clickable job images go-->
-            <div class = "col-2 lg-4">
+            <div class = "col">
                 <div class="row" id="job-icons">
                 </div>
             </div>
     
             <!--New Part State-->
-            <div class="container">
+            <div class="container mb-2">
                 <div class="row">
                     <form id="new-part-form" class="hidden">
                         <div class="mb-2">
@@ -45,10 +45,10 @@
                                 Drag and Drop Image Here
                             </div> -->
                             
-                            <input type="file" id="file_input" accept="image/*">
-                            <br/>
+                            <!-- <input type="file" id="file_input" accept="image/*">
+                            <br/> -->
                             
-                            <input type="text" id="url_input" placeholder="Or enter image URL here" name="part-img-submit">
+                            <input type="text" id="url_input" placeholder="enter image URL here" name="part-img-submit">
                             
                             <img id="display_image" style="width: 300px; height: auto;">
                         </div>
@@ -75,16 +75,16 @@
             <!--New Job State-->
             <div class="container">
                 <div class="row">
-                    <form id="new-job-form" class="hidden">
+                    <form id="new-job-form" class="hidden my-2">
                         <div class="mb-2">
                             <!-- <div id="drop_area">
                                 Drag and Drop Image Here
                             </div> -->
                             
-                            <input type="file" id="file_input" accept="image/*">
-                            <br/>
+                            <!-- <input type="file" id="file_input" accept="image/*">
+                            <br/> -->
                             
-                            <input type="text" id="url_input" placeholder="Or enter image URL here" name="job-img-submit">   
+                            <input type="text" id="url_input" placeholder="enter image URL here" name="job-img-submit">   
                             
                             <img id="display_image" style="width: 300px; height: auto;">
                         </div>
@@ -111,18 +111,18 @@
             </div>
     
             <!--Detail State-->
-                <div class="container hidden" id="detail-state">
+                <div class="container hidden mt-3" id="detail-state">
                     <div class = "row justify-content-start">
-                        <div class = "col-2">
-                            <img src="https://img.freepik.com/premium-vector/plumber-mascot-full-body-illustration_44241-83.jpg?w=1060" id="image-detail" class="img-thumbnail">
+                        <div class = "col-3">
+                            <img src="https://img.freepik.com/premium-vector/plumber-mascot-full-body-illustration_44241-83.jpg?w=1060" id="image-detail" class="rounded-4 detail">
                         </div>
-                            <div class = "col-10">
+                            <div class = "col-9">
                                 <h2 id="job-detail-name">Job Name</h2>
                                 <h4 id="job-description-name">Description</h4>
                             </div>
                         </div>
                     <div class = "row">
-                        <div class = "col-4">
+                        <div class = "col-6">
                             <ul id="job-parts-detail-list"></ul>
                         </div>
                     <!--Detail of Part-->

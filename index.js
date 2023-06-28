@@ -66,9 +66,7 @@ newPartButton.addEventListener("click", toggleNewPartState);
 newJobButton.addEventListener("click", toggleNewJobState);
 
 // Handle file upload via input
-fileInput.addEventListener("change", function (e) {
-  displayUploadedFile(this.files[0]);
-});
+// fileInput.addEventListener("change", handleJobSubmit(this.files[0]));
 
 // Handle file upload via drag and drop
 // ["dragenter", "dragover", "dragleave", "drop"].forEach((eventName) => {
@@ -118,6 +116,7 @@ function handleJobSubmit(e) {
 
   const image = document.createElement("img")
   image.src = e.target["job-img-submit"].value
+  image.classList.add("rounded-5", "p-2")
   
   jobIcons.appendChild(image);
   image.addEventListener("click", () => {
@@ -210,6 +209,7 @@ function handleDrop(e) {
 function renderIconsHomeState(jobsObj) {
   const jobIconImg = document.createElement('img')
   jobIconImg.src = jobsObj.image
+  jobIconImg.classList.add("rounded-5", "p-2")
   jobIcons.appendChild(jobIconImg)
 
   jobIconImg.addEventListener("click", (e) => {
