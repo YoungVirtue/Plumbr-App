@@ -20,6 +20,7 @@ const jobIcons = document.querySelector("#job-icons");
 const searchBar = document.querySelector("#search-bar")
 const partDetailCard = document.querySelector("#part-detail-card")
 const imageDetail = document.querySelector("#image-detail")
+const partCardName = document.querySelector("#part-detail-name")
 let selectedJobs;
 
 //FETCH FUNCTIONS
@@ -157,6 +158,15 @@ function toggleDetailState(e) {
   }
 }
 
+//For Part Detail Toggle
+function togglePartCard(e) {
+  if (partDetailCard.classList.contains("hidden")) {
+    partDetailCard.classList.remove("hidden");
+  } else if (e.target.textContent === partCardName.textContent) {
+    partDetailCard.classList.add("hidden");
+  }
+}
+
 //For New Part Button State Toggle
 function toggleNewPartState() {
   if (newPartForm.classList.contains("hidden")) {
@@ -227,7 +237,10 @@ function renderDetailState(newJob) {
       let li = document.createElement('li');
       li.textContent = part.name
       ul.appendChild(li)
-      li.addEventListener('click', () => renderPartsDetail(part))
+      li.addEventListener('click', (e) => {
+        togglePartCard(e)
+        renderPartsDetail(part)
+      })
     })
     // renderPartsDetail(part[0])
   })

@@ -9,5 +9,5 @@
 
 [x] Existing Jobs render on page
 [x] Delete placeholder job pic
-[] Render first part automatically in Job Detail State
-[] Persistence on page refresh
+[x] Render first part automatically in Job Detail State
+[x] Persistence on page refresh
