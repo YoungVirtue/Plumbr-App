@@ -130,178 +130,184 @@ function handleJobSubmit(e) {
       return res.json();
     })
     .then((newJobJson) => {
-      image.dataset.jobId = newJobJson.id;
+      // Save the ID to localStorage
+      localStorage.setItem("jobId", newJobJson.id);
+      // Set the ID as the image element's attribute
+      const imageElement = document.getElementById("myImage");
+      imageElement.setAttribute("data-job-id", newJobJson.id);
     });
-}
-
-//Handle Parts Dropdown
-function handlePartsDropdown() {
-  if (partsList.classList.contains("hidden")) {
-    partsList.classList.remove("hidden");
-  } else {
-    partsList.classList.add("hidden");
   }
-}
 
-//For Detail State Toggle
-function toggleDetailState(e) {
-  if (detailState.classList.contains("hidden")) {
-    detailState.classList.remove("hidden");
-  } else if (e.target.src === imageDetail.src) {
-    detailState.classList.add("hidden");
+  //Handle Parts Dropdown
+  function handlePartsDropdown() {
+    if (partsList.classList.contains("hidden")) {
+      partsList.classList.remove("hidden");
+    } else {
+      partsList.classList.add("hidden");
+    }
   }
-}
 
-//For Part Detail Toggle
-
-function togglePartCard(e) {
-  if (partDetailCard.classList.contains("hidden")) {
-    partDetailCard.classList.remove("hidden");
-  } else if (e.target.textContent === partCardName.textContent) {
-    partDetailCard.classList.add("hidden");
+  //For Detail State Toggle
+  function toggleDetailState(e) {
+    if (detailState.classList.contains("hidden")) {
+      detailState.classList.remove("hidden");
+    } else if (e.target.src === imageDetail.src) {
+      detailState.classList.add("hidden");
+    }
   }
-}
 
-//For New Part Button State Toggle
-function toggleNewPartState() {
-  if (newPartForm.classList.contains("hidden")) {
-    newPartForm.classList.remove("hidden");
-    newPartButton.textContent = "Done";
-  } else {
-    newPartForm.classList.add("hidden");
-    newPartButton.textContent = "Create New Part";
+  //For Part Detail Toggle
+
+  function togglePartCard(e) {
+    if (partDetailCard.classList.contains("hidden")) {
+      partDetailCard.classList.remove("hidden");
+    } else if (e.target.textContent === partCardName.textContent) {
+      partDetailCard.classList.add("hidden");
+    }
   }
-}
 
-//For New Job Button State Toggle
-function toggleNewJobState() {
-  if (newJobForm.classList.contains("hidden")) {
-    newJobForm.classList.remove("hidden");
-    newJobButton.textContent = "Done";
-  } else {
-    newJobForm.classList.add("hidden");
-    newJobButton.textContent = "Create New Job";
+  //For New Part Button State Toggle
+  function toggleNewPartState() {
+    if (newPartForm.classList.contains("hidden")) {
+      newPartForm.classList.remove("hidden");
+      newPartButton.textContent = "Done";
+    } else {
+      newPartForm.classList.add("hidden");
+      newPartButton.textContent = "Create New Part";
+    }
   }
-}
 
-//For Delete Job Button
-function deleteJob(job) {
-  fetch(`${jobURL}/${job.id}`), {
-    method: "DELETE",
+  //For New Job Button State Toggle
+  function toggleNewJobState() {
+    if (newJobForm.classList.contains("hidden")) {
+      newJobForm.classList.remove("hidden");
+      newJobButton.textContent = "Done";
+    } else {
+      newJobForm.classList.add("hidden");
+      newJobButton.textContent = "Create New Job";
+    }
   }
-  console.log(job)
-}
 
-//RENDER FUNCTIONS
+  //For Delete Job Button
+  function deleteJob(job) {
+    fetch(`${jobURL}/${job.id}`),
+      {
+        method: "DELETE",
+      };
+    console.log(job);
+  }
 
-//Render Existing Jobs in Home State Icons
+  //RENDER FUNCTIONS
 
-function renderIconsHomeState(jobsObj) {
-  const jobIconImg = document.createElement("img");
-  jobIconImg.src = jobsObj.image;
-  jobIconImg.classList.add("rounded-5", "p-2");
-  jobIcons.appendChild(jobIconImg);
+  //Render Existing Jobs in Home State Icons
 
-  jobIconImg.addEventListener("click", (e) => {
-    toggleDetailState(e);
-    renderDetailState(jobsObj);
-  });
-}
+  function renderIconsHomeState(jobsObj) {
+    const jobIconImg = document.createElement("img");
+    jobIconImg.src = jobsObj.image;
+    jobIconImg.classList.add("rounded-5", "p-2");
+    jobIcons.appendChild(jobIconImg);
 
-//Display Detail in Job Detail State
+    jobIconImg.addEventListener("click", (e) => {
+      toggleDetailState(e);
+      renderDetailState(jobsObj);
+    });
+  }
 
-function renderDetailState(newJob) {
-  const detailImg = document.querySelector("#image-detail");
-  const detailName = document.querySelector("#job-detail-name");
-  const detailDescr = document.querySelector("#job-description-name");
-  const ul = document.querySelector("#job-parts-detail-list");
-  const deleteButton = document.createElement("button");
-  const editButton = document.createElement("button");
-  editButton.classList.add("edit-button", "my-2");
-  editButton.textContent = "Edit Job";
-  deleteButton.className = "delete-button";
-  deleteButton.textContent = "Delete Job";
-  editDeleteButtons.innerHTML = "";
-  editDeleteButtons.appendChild(editButton);
-  editDeleteButtons.appendChild(deleteButton);
+  //Display Detail in Job Detail State
 
-  deleteButton.addEventListener("click", deleteJob);
+  function renderDetailState(newJob) {
+    const detailImg = document.querySelector("#image-detail");
+    const detailName = document.querySelector("#job-detail-name");
+    const detailDescr = document.querySelector("#job-description-name");
+    const ul = document.querySelector("#job-parts-detail-list");
+    const deleteButton = document.createElement("button");
+    const editButton = document.createElement("button");
+    editButton.classList.add("edit-button", "my-2");
+    editButton.textContent = "Edit Job";
+    deleteButton.className = "delete-button";
+    deleteButton.textContent = "Delete Job";
+    editDeleteButtons.innerHTML = "";
+    editDeleteButtons.appendChild(editButton);
+    editDeleteButtons.appendChild(deleteButton);
 
-  const jobPartsArr = newJob.parts;
+    deleteButton.addEventListener("click", deleteJob);
 
-  detailImg.src = newJob.image;
-  detailName.textContent = newJob.name;
-  detailDescr.textContent = newJob.description;
-  ul.innerHTML = "";
+    const jobPartsArr = newJob.parts;
 
-  jobPartsArr.forEach((part) => {
-    getParts(partURL + "/" + part).then((part) => {
-      let li = document.createElement("li");
-      li.textContent = part.name;
-      ul.appendChild(li);
-      li.addEventListener("click", (e) => {
-        togglePartCard(e);
-        renderPartsDetail(part);
+    detailImg.src = newJob.image;
+    detailName.textContent = newJob.name;
+    detailDescr.textContent = newJob.description;
+    ul.innerHTML = "";
+
+    jobPartsArr.forEach((part) => {
+      getParts(partURL + "/" + part).then((part) => {
+        let li = document.createElement("li");
+        li.textContent = part.name;
+        ul.appendChild(li);
+        li.addEventListener("click", (e) => {
+          togglePartCard(e);
+          renderPartsDetail(part);
+        });
       });
     });
+  }
+
+  function renderPartsDetail(part) {
+    const partDetailImage = document.querySelector("#part-detail-img");
+    const partDetailName = document.querySelector("#part-detail-name");
+    const partDetailSize = document.querySelector("#part-detail-size");
+    const partDetailType = document.querySelector("#part-detail-type");
+    const partDetailTags = document.querySelector("#part-detail-tags");
+    partDetailTags.innerHTML = "";
+    const tagArr = part.tags;
+
+    partDetailImage.src = part.image;
+    //partDetailImage.id = part.id;
+    partDetailName.textContent = part.name;
+    partDetailSize.textContent = `Size: ${part.size}`;
+    partDetailType.textContent = `Type: ${part.type}`;
+    tagArr.forEach((tag) => {
+      let li = document.createElement("li");
+      li.textContent = `#${tag}`;
+      li.classList.add("list-group-item");
+      partDetailTags.appendChild(li);
+    });
+  }
+
+  //Display Parts Data in Parts List
+  function renderInPartsList(partObj) {
+    const formCheck = document.createElement("label");
+    const input = document.createElement("input");
+    const label = document.createElement("span");
+    formCheck.classList.add("label");
+    input.type = "checkbox";
+    input.id = partObj.id;
+    input.name = partObj.name;
+    input.value = partObj.id;
+    input.classList.add("nes-checkbox");
+    label.htmlFor = partObj.id;
+    label.textContent = partObj.name;
+    // label.classList.add("label")
+    partsList.appendChild(formCheck);
+    formCheck.appendChild(input);
+    formCheck.appendChild(label);
+  }
+
+  // Display uploaded file
+  function displayUploadedFile(file) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      displayImage.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  //INITIALIZERS
+  getParts(partURL).then((partsArr) => {
+    partsArr.forEach(renderInPartsList);
   });
-}
 
-function renderPartsDetail(part) {
-  const partDetailImage = document.querySelector("#part-detail-img");
-  const partDetailName = document.querySelector("#part-detail-name");
-  const partDetailSize = document.querySelector("#part-detail-size");
-  const partDetailType = document.querySelector("#part-detail-type");
-  const partDetailTags = document.querySelector("#part-detail-tags");
-  partDetailTags.innerHTML = "";
-  const tagArr = part.tags;
-
-  partDetailImage.src = part.image;
-  //partDetailImage.id = part.id;
-  partDetailName.textContent = part.name;
-  partDetailSize.textContent = `Size: ${part.size}`;
-  partDetailType.textContent = `Type: ${part.type}`;
-  tagArr.forEach((tag) => {
-    let li = document.createElement("li");
-    li.textContent = `#${tag}`;
-    li.classList.add("list-group-item");
-    partDetailTags.appendChild(li);
+  getJobs(jobURL).then((jobsArr) => {
+    jobsArr.forEach(renderIconsHomeState);
   });
-}
 
-//Display Parts Data in Parts List
-function renderInPartsList(partObj) {
-  const formCheck = document.createElement("label");
-  const input = document.createElement("input");
-  const label = document.createElement("span");
-  formCheck.classList.add("label");
-  input.type = "checkbox";
-  input.id = partObj.id;
-  input.name = partObj.name;
-  input.value = partObj.id;
-  input.classList.add("nes-checkbox");
-  label.htmlFor = partObj.id;
-  label.textContent = partObj.name;
-  // label.classList.add("label")
-  partsList.appendChild(formCheck);
-  formCheck.appendChild(input);
-  formCheck.appendChild(label);
-}
-
-// Display uploaded file
-function displayUploadedFile(file) {
-  var reader = new FileReader();
-  reader.onload = function (e) {
-    displayImage.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-}
-
-//INITIALIZERS
-getParts(partURL).then((partsArr) => {
-  partsArr.forEach(renderInPartsList);
-});
-
-getJobs(jobURL).then((jobsArr) => {
-  jobsArr.forEach(renderIconsHomeState);
-});

@@ -50,6 +50,18 @@
         "4"
       ],
       "id": 5
+    },
+    {
+      "name": "Clogged Toilet",
+      "description": "Flooding",
+      "image": "assets/plunger.png",
+      "parts": [
+        "2",
+        "5",
+        "9",
+        "10"
+      ],
+      "id": 6
     }
   ],
   "plumbing_parts": [
