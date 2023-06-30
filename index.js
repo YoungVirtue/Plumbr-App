@@ -85,6 +85,7 @@ function handlePartSubmit(e) {
     },
     body: JSON.stringify(newPart),
   }).then(() => alert(`${newPart.name} submitted!`));
+  renderInPartsList(newPart);
 }
 
 //Handle New Job Submit
@@ -299,14 +300,6 @@ function renderInPartsList(partObj) {
   formCheck.appendChild(label);
 }
 
-// Display uploaded file
-function displayUploadedFile(file) {
-  var reader = new FileReader();
-  reader.onload = function (e) {
-    displayImage.src = e.target.result;
-  };
-  reader.readAsDataURL(file);
-}
 
 //INITIALIZERS
 getParts(partURL).then((partsArr) => {
